@@ -8,7 +8,7 @@
     "mcp__1afe665e-66d9-4874-a2a5-96f9530139a3__semanticSearch",
     "mcp__workspace__bash"
   ],
-  "mcpServerNames": ["Consensus","Scholar Gateway","workspace"]
+  "mcpServerNames": ["workspace"]
 }
 </script>
 <html lang="en"><head>
@@ -140,7 +140,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
     <div class="sb-row"><div class="sb-tn">&#128240; Journal Watch</div><div class="sb-t no" id="rt-j">Not loaded</div></div>
     <div class="sb-row"><div class="sb-tn">&#128176; Grants</div><div class="sb-t no" id="rt-g">Not loaded</div></div>
   </div>
-  <div class="sb-sec"><div class="sb-lbl">Sources</div><div class="sb-val">Consensus &middot; Scholar Gateway &middot; RSS</div></div>
+  <div class="sb-sec"><div class="sb-lbl">Sources</div><div class="sb-val">RSS &middot; OpenAlex</div></div>
   <div class="sb-foot">Dr Aaron Greenville<br>University of Sydney<br>Ecosystem Dynamics Lab</div>
 </aside>
 <div id="main">
@@ -151,11 +151,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
   </nav>
   <div id="cont">
     <div id="pan-j" class="pan on">
-      <div class="phdr"><div><div class="ptitle">Journal Watch</div><div class="psub">Q1 ecology journals &middot; RSS feeds, Scholar Gateway &amp; Consensus &middot; Filtered by theme, keyword or journal</div></div><div class="phdr-btns"><button class="rbtn" id="btn-j">&#8635; Refresh</button></div></div>
+      <div class="phdr"><div><div class="ptitle">Journal Watch</div><div class="psub">Q1 ecology journals &middot; RSS feeds &amp; OpenAlex &middot; Filtered by theme, keyword or journal</div></div><div class="phdr-btns"><button class="rbtn" id="btn-j">&#8635; Refresh</button></div></div>
       <div id="j-filter"></div><div id="j-rss"></div><div id="j-issues"></div><div id="j-live"></div>
     </div>
     <div id="pan-g" class="pan">
-      <div class="phdr"><div><div class="ptitle">Australian Ecology Grants</div><div class="psub">Open, upcoming and recently awarded funding</div></div><button class="rbtn" id="btn-g">&#8635; Refresh</button></div>
+      <div class="phdr"><div><div class="ptitle">Australian Ecology Grants</div><div class="psub">Open, upcoming and recently awarded funding</div></div></div>
       <div id="g-body"></div>
     </div>
     <div id="pan-student-grants" class="pan">
@@ -533,7 +533,6 @@ function renderGrants(){
 }
 document.getElementById('tabbar').addEventListener('click',e=>{const b=e.target.closest('[data-tab]');if(!b)return;document.querySelectorAll('.tb').forEach(x=>x.classList.remove('on'));document.querySelectorAll('.pan').forEach(x=>x.classList.remove('on'));b.classList.add('on');document.getElementById('pan-'+b.dataset.tab).classList.add('on');});
 document.getElementById('btn-j').addEventListener('click',loadJW);
-document.getElementById('btn-g').addEventListener('click',renderGrants);
 document.getElementById('sb-date').textContent=new Date().toLocaleDateString('en-AU',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
 renderGrants();
 initFilterBar();
