@@ -29,6 +29,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
 .sb-tn{font-size:10px;color:#334155;margin-bottom:1px}
 .sb-t{font-size:11px;font-weight:600}.sb-t.ok{color:#4ade80}.sb-t.no{color:#334155}
 .sb-foot{margin-top:auto;padding-top:12px;border-top:1px solid #1e293b;font-size:10px;color:#334155;line-height:1.6}
+.sb-nav{display:flex;flex-direction:column;gap:3px}.sb-nav a{font-size:11px;color:#94a3b8;text-decoration:none;padding:4px 7px;border-radius:4px;cursor:pointer;transition:background .15s,color .15s;display:block}.sb-nav a:hover{background:#1e293b;color:#e2e8f0}
 #main{flex:1;display:flex;flex-direction:column;overflow:hidden;min-width:0}
 #tabbar{background:#fff;border-bottom:1px solid var(--bdr);display:flex;padding:0 20px;flex-shrink:0}
 .tb{padding:13px 18px;border:none;background:none;cursor:pointer;font-size:13px;font-weight:500;color:var(--mut);border-bottom:2.5px solid transparent;font-family:inherit;transition:all .15s;white-space:nowrap}
@@ -141,6 +142,14 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
     <div class="sb-row"><div class="sb-tn">&#128176; Grants</div><div class="sb-t no" id="rt-g">Not loaded</div></div>
   </div>
   <div class="sb-sec"><div class="sb-lbl">Sources</div><div class="sb-val">RSS &middot; OpenAlex</div></div>
+  <div class="sb-sec" id="sb-nav-j">
+    <div class="sb-lbl">Jump to</div>
+    <div class="sb-nav">
+      <a onclick="jumpTo('j-rss')">&#128251; RSS Feeds</a>
+      <a onclick="jumpTo('j-issues')">&#128203; Latest Issues</a>
+      <a onclick="jumpTo('j-live')">&#9889; Just Published</a>
+    </div>
+  </div>
   <div class="sb-foot">Dr Aaron Greenville<br>University of Sydney<br>Ecosystem Dynamics Lab</div>
 </aside>
 <div id="main">
@@ -531,7 +540,8 @@ function renderGrants(){
   const srch=document.getElementById('g-srch');if(srch){srch.addEventListener('input',e=>{GF.q=e.target.value;renderGrants();});if(GF.q)srch.focus();}
   setRT('g');
 }
-document.getElementById('tabbar').addEventListener('click',e=>{const b=e.target.closest('[data-tab]');if(!b)return;document.querySelectorAll('.tb').forEach(x=>x.classList.remove('on'));document.querySelectorAll('.pan').forEach(x=>x.classList.remove('on'));b.classList.add('on');document.getElementById('pan-'+b.dataset.tab).classList.add('on');});
+function jumpTo(id){const el=document.getElementById(id);if(el){document.getElementById('cont').scrollTo({top:el.offsetTop-8,behavior:'smooth'});}}
+document.getElementById('tabbar').addEventListener('click',e=>{const b=e.target.closest('[data-tab]');if(!b)return;document.querySelectorAll('.tb').forEach(x=>x.classList.remove('on'));document.querySelectorAll('.pan').forEach(x=>x.classList.remove('on'));b.classList.add('on');document.getElementById('pan-'+b.dataset.tab).classList.add('on');const nav=document.getElementById('sb-nav-j');if(nav)nav.style.display=b.dataset.tab==='j'?'':'none';});
 document.getElementById('btn-j').addEventListener('click',loadJW);
 document.getElementById('sb-date').textContent=new Date().toLocaleDateString('en-AU',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
 renderGrants();
