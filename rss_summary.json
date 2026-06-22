@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-06-21T22:07:51Z",
-  "source_fetched_at": "2026-06-21T22:03:34.758344Z",
-  "article_count": 352,
-  "narrative": "Today's strongest signal comes from evolutionary biology: a whole-genome study of the clouded sulfur butterfly shows summer rainfall driving local adaptation despite ongoing gene flow across elevational gradients, while a parallel paper on a widespread Acacia tree finds phenotypic plasticity, not just selection, shaping trait divergence across a tropical-to-desert climate gradient. On the climate front, a global resurvey of over 5,000 species finds that local extinctions are occurring faster in temperate regions than in the tropics, linked to more rapid warming at high latitudes — a finding that complicates assumptions about where climate risk is concentrated. Fire ecology contributed two notable framework papers: a new IAM-FIRE emulator projects that global wildfire activity could fall through 2100 under rapid decarbonisation but surge sharply if emissions and development both stall, and a trait-based rapid-assessment tool was proposed for triaging data-poor Australian invertebrates after major fire events. In population ecology, a multi-decade study of wandering albatrosses links individual personality differences to demographic outcomes via a new hyperstate population model, and golden lion tamarins showed a temporary shift in dispersal behaviour following a 2017-2018 outbreak, with numbers since recovering beyond pre-outbreak levels. On the methods side, two papers tackle long-standing transferability problems: a deep-learning pipeline for animal bio-logging activity recognition aims to standardise a fragmented analytic landscape, and a comparison of machine- and deep-learning approaches to joint species distribution models tests how well these transfer when biotic interaction structure shifts. Finally, in biogeography, a global analysis of reef fishes finds that body size and geographic range jointly structure abundance patterns at both global and regional scales.",
+  "generated_at": "2026-06-22T21:45:05Z",
+  "source_fetched_at": "2026-06-22T21:41:44.334948Z",
+  "article_count": 360,
+  "narrative": "Today's strongest signal is on fire and climate: a new framework for triaging fire impacts on Australia's data-poor invertebrates pairs with projections that wildfire-driven carbon emissions could fall or surge sharply depending on global emissions and development pathways, while resurvey data spanning thousands of species shows local extinctions from warming are now outpacing those in the tropics. In movement and connectivity work, four decades of land-cover change reveal a sharp decline in functional connectivity across the deforested Amazon, and warming summers are already weakening reindeer grazing pressure that normally checks shrub expansion in Arctic tundra. Population studies highlight how individual variation, from albatross personality to age-specific survival across 92,000 individuals, shapes demographic outcomes more than typically assumed, while a Brazilian yellow fever outbreak shows population recovery can outpace expectations even after sharp short-term declines. On the methods front, a wave of new tools, including an open-source real-time animal re-identification system for edge devices, a continuous-time camera-trap density model, and an AI identification model trained on over 21,000 Chinese plant species, point to rapid growth in field-deployable, automated monitoring. Evolutionary and biogeographic work spans a butterfly study showing rainfall drives local adaptation alongside ongoing gene flow, a tree species using plasticity rather than fixed divergence to cope with savanna-to-desert gradients, and new fossil-calibrated molecular clock evidence pushing the origin of flowering plants back into the Late Jurassic. A 25-year review of modern coexistence theory finds its empirical payoff has come mostly from studying niche and fitness-difference mediators rather than its original narrow focus.",
   "muted_default": [
     "disease",
     "soil",
@@ -16,7 +16,7 @@
       "active": true,
       "muted": false,
       "order": 1,
-      "count": 10,
+      "count": 9,
       "articles": [
         {
           "title": "A trait‐based rapid assessment framework to estimate fire impacts on data‐poor Australian invertebrate taxa",
@@ -31,7 +31,7 @@
           "route_reason": "keyword-score",
           "booster_points": 4,
           "methods_tier": "none",
-          "digest": "Proposes a trait-based rapid-assessment framework to estimate fire impacts on Australia's poorly described invertebrate taxa after major disturbance events."
+          "digest": "A trait-based rapid-assessment framework estimates fire impacts on data-poor Australian invertebrates, filling a key gap for the continent's most diverse, least-studied fauna."
         },
         {
           "title": "IAM‐FIRE: A Climate Emulator–Based Framework to Project Wildfire Impacts and Risks for Integrated Assessment Models",
@@ -46,7 +46,7 @@
           "route_reason": "keyword-score",
           "booster_points": 0,
           "methods_tier": "none",
-          "digest": "Introduces IAM-FIRE, a climate-emulator framework projecting that wildfire and carbon emissions could fall or surge depending on emissions and development pathways through 2100."
+          "digest": "IAM-FIRE, a new climate-emulator framework, projects global wildfire impacts to 2100, showing emissions and development pathways determine whether wildfire risk rises or falls."
         },
         {
           "title": "Fire buffers drought impacts on reproduction in a resprouting Mediterranean shrub",
@@ -61,7 +61,7 @@
           "route_reason": "keyword-score",
           "booster_points": 0,
           "methods_tier": "none",
-          "digest": "Finds that post-fire resprouting buffers drought stress on reproduction in a Mediterranean shrub, easing the fitness cost of combined fire and drought."
+          "digest": "Post-fire resprouting buffered reproductive output against drought stress in a Mediterranean shrub, showing fire and drought can offset rather than compound each other."
         },
         {
           "title": "Fire increases ecosystem sensitivity to precipitation through conversion from shrubland to annual grassland",
@@ -124,21 +124,6 @@
           "digest": null
         },
         {
-          "title": "Assessing environmental influences on gene flow for a migratory ungulate in a fire-prone landscape",
-          "journal": "Landscape Ecology",
-          "publisher": "Springer",
-          "link": "https://link.springer.com/article/10.1007/s10980-025-02276-w",
-          "pub": "2026-05-27",
-          "score": 3,
-          "primary_theme": "fire",
-          "secondary_theme": "evolution",
-          "low_confidence": true,
-          "route_reason": "keyword-score",
-          "booster_points": 0,
-          "methods_tier": "none",
-          "digest": null
-        },
-        {
           "title": "Fluvial Export of Carbon and Nutrients from Boreal Catchments Disturbed by Fire and Permafrost Thaw",
           "journal": "Ecosystems",
           "publisher": "Springer",
@@ -177,7 +162,7 @@
       "active": true,
       "muted": false,
       "order": 2,
-      "count": 31,
+      "count": 32,
       "articles": [
         {
           "title": "Warming summers limit reindeer grazing, weakening herbivory pressure in the mountain tundra",
@@ -192,7 +177,7 @@
           "route_reason": "keyword-score",
           "booster_points": 0,
           "methods_tier": "none",
-          "digest": "Long-term tracking of free-ranging reindeer shows warming summers reduce grazing activity, weakening herbivory pressure that normally limits shrub expansion in tundra."
+          "digest": "Long-term tracking of 31 reindeer shows warming summers reduce grazing activity, weakening herbivory pressure that normally limits shrub expansion in Arctic tundra."
         },
         {
           "title": "Impact of global change on the distribution of mountain mammals and birds",
@@ -207,7 +192,7 @@
           "route_reason": "keyword-score",
           "booster_points": 0,
           "methods_tier": "none",
-          "digest": "Models show mountain mammals and birds shifting upslope under climate and land-use change, often into less favourable conditions that raise extinction risk."
+          "digest": "Climate and land-use change are pushing mountain mammals and birds to higher elevations, often into unfavourable habitat, raising extinction risk for range-restricted species."
         },
         {
           "title": "Temperate local extinctions from climate change are outpacing tropical extinctions",
@@ -222,7 +207,7 @@
           "route_reason": "keyword-score",
           "booster_points": 0,
           "methods_tier": "none",
-          "digest": "A resurvey of over 5,000 species finds local extinctions occurring more often in temperate than tropical regions, tied to faster high-latitude warming."
+          "digest": "Resurvey data for over 5,000 species show temperate populations are going locally extinct faster than tropical ones, linked to more rapid warming at high latitudes."
         },
         {
           "title": "These Boots Are Made for Walking: Sex‐Specific Physiological and Metabolomic Strategies Reflect Male‐Skewed Vulnerability to Ocean Warming in a Keystone Amphipod",
@@ -401,7 +386,7 @@
           "low_confidence": false,
           "route_reason": "keyword-score",
           "booster_points": 0,
-          "methods_tier": "advance",
+          "methods_tier": "uses",
           "digest": null
         },
         {
@@ -476,7 +461,7 @@
           "low_confidence": false,
           "route_reason": "keyword-score",
           "booster_points": 0,
-          "methods_tier": "introduce",
+          "methods_tier": "advance",
           "digest": null
         },
         {
@@ -495,21 +480,6 @@
           "digest": null
         },
         {
-          "title": "Long‐term trends in global flowering phenology",
-          "journal": "New Phytologist",
-          "publisher": "Wiley",
-          "link": "https://nph.onlinelibrary.wiley.com/doi/10.1111/nph.70139?af=R",
-          "pub": "Thu, 18 Jun 2026 11:58:05 -0700",
-          "score": 3,
-          "primary_theme": "climate",
-          "secondary_theme": "methods",
-          "low_confidence": false,
-          "route_reason": "keyword-score",
-          "booster_points": 0,
-          "methods_tier": "uses",
-          "digest": null
-        },
-        {
           "title": "A link between increased temperature and avian body condition in a logged tropical forest",
           "journal": "Conservation Biology",
           "publisher": "Wiley",
@@ -518,6 +488,21 @@
           "score": 3,
           "primary_theme": "climate",
           "secondary_theme": "community",
+          "low_confidence": false,
+          "route_reason": "keyword-score",
+          "booster_points": 0,
+          "methods_tier": "none",
+          "digest": null
+        },
+        {
+          "title": "Cross‐stressor resilience of soil microbial growth and carbon metabolism under climate change",
+          "journal": "Ecology",
+          "publisher": "ESA/Wiley",
+          "link": "https://esajournals.onlinelibrary.wiley.com/doi/10.1002/ecy.70439?af=R",
+          "pub": "Sun, 21 Jun 2026 23:38:56 -0700",
+          "score": 3,
+          "primary_theme": "climate",
+          "secondary_theme": null,
           "low_confidence": false,
           "route_reason": "keyword-score",
           "booster_points": 0,
@@ -643,6 +628,21 @@
           "booster_points": 0,
           "methods_tier": "none",
           "digest": null
+        },
+        {
+          "title": "An integrated physiological and metabolic approach reveals how magnesium supplementation modulates soybean performance to cope with drought stress",
+          "journal": "Plant and Soil",
+          "publisher": "Springer",
+          "link": "https://link.springer.com/article/10.1007/s11104-026-08749-4",
+          "pub": "2026-06-22",
+          "score": 3,
+          "primary_theme": "climate",
+          "secondary_theme": null,
+          "low_confidence": true,
+          "route_reason": "keyword-score",
+          "booster_points": 0,
+          "methods_tier": "none",
+          "digest": null
         }
       ]
     },
@@ -668,7 +668,7 @@
           "route_reason": "keyword-score",
           "booster_points": 0,
           "methods_tier": "none",
-          "digest": "Four decades of land-cover data reveal sharply declining functional connectivity across the Amazon's deforestation frontier, constraining seed and pollen dispersal."
+          "digest": "Four decades of land-cover data show functional connectivity across the Amazon's deforestation frontier has declined sharply, constraining seed and pollen dispersal in fragmented forest."
         },
         {
           "title": "New landscapes, new connections: How ecological network mesostructure responds to novel landscapes?",
@@ -683,7 +683,7 @@
           "route_reason": "keyword-score",
           "booster_points": 0,
           "methods_tier": "none",
-          "digest": "Compares pollination and seed-dispersal networks in native versus non-native forests, showing landscape complexity reshapes species connectivity and interaction turnover."
+          "digest": "Novel forests of non-native trees reshape pollination and seed-dispersal networks, altering species connectivity and interaction turnover compared with native forest landscapes."
         },
         {
           "title": "The multiple dimensions of intraspecific variation in seed dispersal",
@@ -698,7 +698,7 @@
           "route_reason": "keyword-score",
           "booster_points": 0,
           "methods_tier": "none",
-          "digest": "Argues that individual-level variation in seed dispersal is widespread and understudied, with implications for predicting species demography and range shifts."
+          "digest": "A review highlights how individual-level variation in seed dispersal, often ignored in models that assume uniform within-species dispersal, can be substantial and ecologically important."
         },
         {
           "title": "Beyond species loss: Community reshuffling shapes biodiversity along the urban–rural gradient",
@@ -803,6 +803,21 @@
           "route_reason": "keyword-score",
           "booster_points": 0,
           "methods_tier": "none",
+          "digest": null
+        },
+        {
+          "title": "Dwarf mongooses pre-emptively alter their behaviour relative to the threat posed by different rival groups",
+          "journal": "Nature Ecology and Evolution",
+          "publisher": "Nature",
+          "link": "https://www.nature.com/articles/s41559-026-03104-3",
+          "pub": "2026-06-16",
+          "score": 3,
+          "primary_theme": "movement",
+          "secondary_theme": "evolution",
+          "low_confidence": false,
+          "route_reason": "keyword-score",
+          "booster_points": 0,
+          "methods_tier": "uses",
           "digest": null
         },
         {
@@ -924,21 +939,6 @@
           "booster_points": 0,
           "methods_tier": "none",
           "digest": null
-        },
-        {
-          "title": "Beyond network-based approaches: uncovering the true cost of connectivity",
-          "journal": "Landscape Ecology",
-          "publisher": "Springer",
-          "link": "https://link.springer.com/article/10.1007/s10980-026-02382-3",
-          "pub": "2026-05-28",
-          "score": 1,
-          "primary_theme": "movement",
-          "secondary_theme": null,
-          "low_confidence": true,
-          "route_reason": "keyword-score",
-          "booster_points": 0,
-          "methods_tier": "none",
-          "digest": null
         }
       ]
     },
@@ -949,7 +949,7 @@
       "active": true,
       "muted": false,
       "order": 4,
-      "count": 25,
+      "count": 26,
       "articles": [
         {
           "title": "Yellow fever outbreak temporarily changes dispersal patterns in an endangered primate",
@@ -964,7 +964,7 @@
           "route_reason": "keyword-score",
           "booster_points": 0,
           "methods_tier": "none",
-          "digest": "A multi-site capture-recapture study shows a yellow fever outbreak temporarily altered dispersal behaviour in golden lion tamarins, which have since recovered beyond prior numbers."
+          "digest": "A 2017-18 yellow fever outbreak cut golden lion tamarin survival and temporarily shifted dispersal patterns, though the population has since recovered beyond pre-outbreak levels."
         },
         {
           "title": "Linking differences in personality to demography in the wandering albatross",
@@ -979,7 +979,7 @@
           "route_reason": "keyword-score",
           "booster_points": 0,
           "methods_tier": "none",
-          "digest": "A three-dimensional hyperstate population model links individual personality differences to vital rates and demographic outcomes in wandering albatrosses."
+          "digest": "A three-dimensional hyperstate population model links individual personality differences to vital rates in wandering albatrosses, quantifying personality's previously unmeasured demographic impact."
         },
         {
           "title": "Assessment of large‐scale spatial variation in age‐specific survival and age at first breeding in a long‐lived species",
@@ -1297,6 +1297,21 @@
           "digest": null
         },
         {
+          "title": "MtGRF8 interacts with MtSymCRK and prevents early bacteroid death during Medicago – Sinorhizobium symbiosis",
+          "journal": "New Phytologist",
+          "publisher": "Wiley",
+          "link": "https://nph.onlinelibrary.wiley.com/doi/10.1111/nph.71343?af=R",
+          "pub": "Sun, 21 Jun 2026 20:57:54 -0700",
+          "score": 3,
+          "primary_theme": "population",
+          "secondary_theme": null,
+          "low_confidence": false,
+          "route_reason": "keyword-score",
+          "booster_points": 0,
+          "methods_tier": "none",
+          "digest": null
+        },
+        {
           "title": "Estimating spatial patchiness of a threatened marine snail based on movement behavior",
           "journal": "Conservation Biology",
           "publisher": "Wiley",
@@ -1335,7 +1350,7 @@
       "active": true,
       "muted": false,
       "order": 5,
-      "count": 44,
+      "count": 46,
       "articles": [
         {
           "title": "Nitrogen fertilization promotes wheat–weed coexistence through niche differentiation and fitness equalization",
@@ -1350,7 +1365,7 @@
           "route_reason": "keyword-score",
           "booster_points": 0,
           "methods_tier": "none",
-          "digest": "Nitrogen fertilization promotes coexistence between wheat and weeds via niche differentiation and fitness equalization, with implications for crop-weed diversity management."
+          "digest": "Nitrogen fertilization can promote wheat-weed coexistence via niche differentiation and fitness equalization, complicating its use as a tool to suppress weed diversity."
         },
         {
           "title": "Nutrient enrichment destabilizes aquatic food webs through synchronization within and across trophic levels",
@@ -1365,7 +1380,7 @@
           "route_reason": "keyword-score",
           "booster_points": 0,
           "methods_tier": "none",
-          "digest": "Nutrient enrichment destabilizes multi-trophic aquatic food webs by synchronising dynamics within and across trophic levels, drawing on a decade of field data."
+          "digest": "Nutrient enrichment destabilizes multi-trophic food webs by altering both within-trophic synchrony and cross-trophic asynchrony, revealing two distinct destabilizing mechanisms."
         },
         {
           "title": "Integrating experimental and observational approaches facilitates scaling species interactions to biodiversity patterns",
@@ -1380,7 +1395,7 @@
           "route_reason": "keyword-score",
           "booster_points": 0,
           "methods_tier": "none",
-          "digest": "Combines experimental and observational data to scale niche and fitness differences in species interactions up to community-level biodiversity patterns."
+          "digest": "Combining experimental and observational approaches better scales species-interaction mechanisms up to community-level biodiversity patterns than either approach alone."
         },
         {
           "title": "Potential to fund arable rewilding in England with biodiversity credits",
@@ -1938,6 +1953,36 @@
           "digest": null
         },
         {
+          "title": "Landscape quality drives ecological responses to habitat loss and fragmentation",
+          "journal": "Nature Ecology and Evolution",
+          "publisher": "Nature",
+          "link": "https://www.nature.com/articles/s41559-026-03095-1",
+          "pub": "2026-06-17",
+          "score": 3,
+          "primary_theme": "community",
+          "secondary_theme": "evolution",
+          "low_confidence": false,
+          "route_reason": "keyword-score",
+          "booster_points": 0,
+          "methods_tier": "none",
+          "digest": null
+        },
+        {
+          "title": "Biodiversity loss will decrease the future creditworthiness of nations",
+          "journal": "Nature Ecology and Evolution",
+          "publisher": "Nature",
+          "link": "https://www.nature.com/articles/s41559-026-03081-7",
+          "pub": "2026-06-05",
+          "score": 3,
+          "primary_theme": "community",
+          "secondary_theme": "evolution",
+          "low_confidence": false,
+          "route_reason": "keyword-score",
+          "booster_points": 0,
+          "methods_tier": "none",
+          "digest": null
+        },
+        {
           "title": "Rainfall deficit reduces biodiversity and destabilizes a saline-soil plant community",
           "journal": "Science Advances",
           "publisher": "AAAS",
@@ -2006,7 +2051,7 @@
       "active": true,
       "muted": false,
       "order": 6,
-      "count": 35,
+      "count": 36,
       "articles": [
         {
           "title": "Long‐term changes in functional diversity and its implications for mammalian conservation and ecological restoration in a grassland ecosystem",
@@ -2021,7 +2066,7 @@
           "route_reason": "keyword-score",
           "booster_points": 0,
           "methods_tier": "none",
-          "digest": "Paleontological and modern data trace long-term functional diversity loss in a grassland ecosystem, informing debates over megafauna-focused ecological restoration."
+          "digest": "Paleontological data tracking Late Pleistocene megafauna loss inform long-term functional-diversity shifts in grassland mammal communities, with direct implications for restoration strategy."
         },
         {
           "title": "When conservation meets contagion: Mapping yellow fever risk to guide vaccination in an endangered primate",
@@ -2036,7 +2081,7 @@
           "route_reason": "keyword-score",
           "booster_points": 0,
           "methods_tier": "none",
-          "digest": "Spatial risk mapping of yellow fever transmission identifies priority zones to guide targeted vaccination and protect an endangered primate."
+          "digest": "Spatial risk mapping of Brazil's 2017-19 yellow fever outbreak identifies priority zones for targeted vaccination of endangered golden lion tamarins."
         },
         {
           "title": "Slow recovery of stable carbon constrains long‐term soil carbon restoration in China's restored wetlands",
@@ -2051,7 +2096,7 @@
           "route_reason": "keyword-score",
           "booster_points": 0,
           "methods_tier": "none",
-          "digest": "Long-term data from restored Chinese wetlands show the more stable carbon pool recovers slowly, limiting whole-ecosystem carbon restoration assessed by bulk measures alone."
+          "digest": "Restored Chinese wetlands show the most stable carbon pool recovers very slowly, meaning bulk measures overstate true long-term restoration success."
         },
         {
           "title": "Moderately thinning encroaching shrub species is key to balancing rangeland restoration and arthropod biodiversity conservation in Namibia",
@@ -2246,6 +2291,21 @@
           "route_reason": "keyword-score",
           "booster_points": 2,
           "methods_tier": "none",
+          "digest": null
+        },
+        {
+          "title": "RAPID: Real‐time animal pattern re‐identification on edge devices, an open‐source tool for field deployment",
+          "journal": "Methods in Ecology and Evolution",
+          "publisher": "Wiley",
+          "link": "https://besjournals.onlinelibrary.wiley.com/doi/10.1111/2041-210x.70332?af=R",
+          "pub": "Sun, 21 Jun 2026 21:01:04 -0700",
+          "score": 3,
+          "primary_theme": "conservation",
+          "secondary_theme": null,
+          "low_confidence": false,
+          "route_reason": "keyword-score",
+          "booster_points": 0,
+          "methods_tier": "introduce",
           "digest": null
         },
         {
@@ -2542,7 +2602,7 @@
       "active": true,
       "muted": false,
       "order": 7,
-      "count": 24,
+      "count": 21,
       "articles": [
         {
           "title": "Optimal deep learning activity recognition pipeline using animal bio‐logging data",
@@ -2556,8 +2616,8 @@
           "low_confidence": false,
           "route_reason": "keyword-score",
           "booster_points": 0,
-          "methods_tier": "introduce",
-          "digest": "Proposes a standardised deep-learning pipeline for animal activity recognition from bio-logging data, aiming to resolve inconsistent results across studies' differing analytic choices."
+          "methods_tier": "advance",
+          "digest": "A systematic comparison of deep-learning pipelines for classifying animal behaviour from bio-logging sensor data aims to standardize methods that currently vary widely across studies."
         },
         {
           "title": "Harnessing the power of machine and deep learning for transferring joint species distribution models considering the structure of biotic interactions",
@@ -2572,7 +2632,7 @@
           "route_reason": "keyword-score",
           "booster_points": 0,
           "methods_tier": "advance",
-          "digest": "Tests machine- and deep-learning joint species distribution models, finding transfer accuracy depends on how well biotic interaction structure is represented."
+          "digest": "Deep-learning-based joint species distribution models improve transferability beyond observed environmental ranges better than traditional approaches, even as biotic interactions shift."
         },
         {
           "title": "Satellite Remote Sensing of Alpine Vegetation Dynamics: Challenges and Perspectives",
@@ -2587,7 +2647,7 @@
           "route_reason": "keyword-score",
           "booster_points": 0,
           "methods_tier": "advance",
-          "digest": "A perspective piece cautions that interpreting satellite greening trends in alpine vegetation requires untangling methodological bias from genuinely distinct ecological processes."
+          "digest": "A perspective piece argues satellite-detected alpine greening trends can reflect multiple distinct ecological processes, so interpreting them needs more than the vegetation index alone."
         },
         {
           "title": "Satellite hindcasts of foliar traits reveal a subtle but consistent relaxation of conservativeness in a biodiverse mountain grassland over the last four decades",
@@ -2602,36 +2662,6 @@
           "route_reason": "keyword-score",
           "booster_points": 0,
           "methods_tier": "advance",
-          "digest": null
-        },
-        {
-          "title": "AutoPollS: A tool for automated monitoring of pollinators using deep learning",
-          "journal": "Methods in Ecology and Evolution",
-          "publisher": "Wiley",
-          "link": "https://besjournals.onlinelibrary.wiley.com/doi/10.1111/2041-210x.70304?af=R",
-          "pub": "Tue, 02 Jun 2026 22:29:48 -0700",
-          "score": 5,
-          "primary_theme": "methods",
-          "secondary_theme": "community",
-          "low_confidence": false,
-          "route_reason": "keyword-score",
-          "booster_points": 0,
-          "methods_tier": "introduce",
-          "digest": null
-        },
-        {
-          "title": "Herbariograph: a deep‐learning tool to classify specimen images",
-          "journal": "New Phytologist",
-          "publisher": "Wiley",
-          "link": "https://nph.onlinelibrary.wiley.com/doi/10.1111/nph.70447?af=R",
-          "pub": "Thu, 18 Jun 2026 11:58:05 -0700",
-          "score": 4,
-          "primary_theme": "methods",
-          "secondary_theme": null,
-          "low_confidence": false,
-          "route_reason": "keyword-score",
-          "booster_points": 0,
-          "methods_tier": "introduce",
           "digest": null
         },
         {
@@ -2661,7 +2691,7 @@
           "low_confidence": false,
           "route_reason": "keyword-score",
           "booster_points": 0,
-          "methods_tier": "advance",
+          "methods_tier": "introduce",
           "digest": null
         },
         {
@@ -2736,7 +2766,7 @@
           "low_confidence": true,
           "route_reason": "keyword-score",
           "booster_points": 0,
-          "methods_tier": "introduce",
+          "methods_tier": "advance",
           "digest": null
         },
         {
@@ -2752,21 +2782,6 @@
           "route_reason": "keyword-score",
           "booster_points": 0,
           "methods_tier": "advance",
-          "digest": null
-        },
-        {
-          "title": "Using reflectance spectra and Pl@ntNet to identify herbarium specimens: a case study with Lithocarpus",
-          "journal": "New Phytologist",
-          "publisher": "Wiley",
-          "link": "https://nph.onlinelibrary.wiley.com/doi/10.1111/nph.70258?af=R",
-          "pub": "Thu, 18 Jun 2026 11:58:05 -0700",
-          "score": 2,
-          "primary_theme": "methods",
-          "secondary_theme": null,
-          "low_confidence": false,
-          "route_reason": "keyword-score",
-          "booster_points": 0,
-          "methods_tier": "uses",
           "digest": null
         },
         {
@@ -2928,7 +2943,7 @@
           "route_reason": "keyword-score",
           "booster_points": 0,
           "methods_tier": "none",
-          "digest": "Analysis of 828 reef fish species finds body size and geographic range jointly shape abundance patterns across global and regional scales."
+          "digest": "Across 828 reef fish species, body size and geographic range size jointly shape abundance patterns, refining classic macroecological theory for the world's most diverse vertebrate group."
         },
         {
           "title": "Cross‐Continental Differences in Climate Asymmetrically Shape Temporal Ecological Processes in Riverine Insect Diversity",
@@ -2943,7 +2958,7 @@
           "route_reason": "keyword-score",
           "booster_points": 0,
           "methods_tier": "none",
-          "digest": "Cross-continental data show riverine insect diversity processes shift with latitude, moving from temperature-driven determinism toward more stochastic drift at higher latitudes."
+          "digest": "River-insect diversity shifts from climate-driven to drift-driven community assembly with latitude, as family richness and turnover decline toward higher latitudes and elevations."
         },
         {
           "title": "Climatic Niche Modelling Reveals Limited Phylogenetic Niche Conservatism in New World Crocodylians",
@@ -2958,7 +2973,7 @@
           "route_reason": "keyword-score",
           "booster_points": 0,
           "methods_tier": "none",
-          "digest": "Combining independent evaluation methods reveals limited phylogenetic niche conservatism among New World crocodylians, relevant to forecasting range shifts in this threatened group."
+          "digest": "Climatic niche modelling across New World crocodylians finds limited evidence that closely related species retain similar ancestral climate niches."
         },
         {
           "title": "Niche Dynamics Under Current and Future Climates of South African Plants in France",
@@ -3164,7 +3179,7 @@
       "active": true,
       "muted": false,
       "order": 9,
-      "count": 9,
+      "count": 8,
       "articles": [
         {
           "title": "Next‐generation specimen digitization: capturing reflectance spectra from the world's herbaria for modeling plant biology across time, space, and taxa",
@@ -3178,8 +3193,8 @@
           "low_confidence": false,
           "route_reason": "keyword-score",
           "booster_points": 0,
-          "methods_tier": "introduce",
-          "digest": "Calls for a coordinated global database of herbarium reflectance spectra to enable large-scale modelling of plant traits across time, space and taxa."
+          "methods_tier": "advance",
+          "digest": "A push for coordinated global digitization of herbarium reflectance spectra would let researchers model plant traits across time, space and taxa at unprecedented scale."
         },
         {
           "title": "Interspecific phenological variation in herbaceous species is more strongly reflected in vegetative traits than in floral traits",
@@ -3194,7 +3209,7 @@
           "route_reason": "keyword-score",
           "booster_points": 0,
           "methods_tier": "none",
-          "digest": "Finds vegetative traits explain interspecific phenological variation in herbaceous species better than floral traits, pointing to under-studied floral trait roles."
+          "digest": "Vegetative traits explain interspecific phenological variation in herbaceous species better than floral traits, a finding relevant to plant-pollinator trait research."
         },
         {
           "title": "Beyond Temperature: Relative Humidity Systematically Shifts Juvenile Thermal Performance and Projected Population Growth in a Malaria Vector",
@@ -3209,7 +3224,7 @@
           "route_reason": "keyword-score",
           "booster_points": 0,
           "methods_tier": "none",
-          "digest": "Laboratory experiments show relative humidity, not just temperature, systematically shifts juvenile thermal performance and projected population growth in a malaria-carrying mosquito."
+          "digest": "Relative humidity, not just temperature, systematically shifts juvenile thermal performance and projected population growth in the malaria vector Anopheles stephensi."
         },
         {
           "title": "Macrogenetic Alignment in Ecological Strategies Better Interprets Assembly Processes Than Pre‐Determined Functional Groupings",
@@ -3257,21 +3272,6 @@
           "digest": null
         },
         {
-          "title": "Integrating microbial functional traits to evaluate responses of soil quality to organic amendments in newly reclaimed farmland",
-          "journal": "Plant and Soil",
-          "publisher": "Springer",
-          "link": "https://link.springer.com/article/10.1007/s11104-026-08741-y",
-          "pub": "2026-06-16",
-          "score": 3,
-          "primary_theme": "planttraits",
-          "secondary_theme": null,
-          "low_confidence": true,
-          "route_reason": "keyword-score",
-          "booster_points": 0,
-          "methods_tier": "none",
-          "digest": null
-        },
-        {
           "title": "The impact of native vertebrates on enemy release and plant functional traits during community assembly",
           "journal": "Oecologia",
           "publisher": "Springer",
@@ -3310,7 +3310,7 @@
       "active": true,
       "muted": false,
       "order": 10,
-      "count": 35,
+      "count": 40,
       "articles": [
         {
           "title": "Summer Rainfall Drives Adaptation with Gene Flow in a Widespread Butterfly",
@@ -3325,7 +3325,7 @@
           "route_reason": "keyword-score",
           "booster_points": 0,
           "methods_tier": "none",
-          "digest": "Whole-genome resequencing across elevational transects shows summer rainfall drives local adaptation in a butterfly despite substantial ongoing gene flow."
+          "digest": "Whole-genome resequencing across elevation transects shows summer rainfall, not just temperature, drives local adaptation alongside ongoing gene flow in a widespread butterfly."
         },
         {
           "title": "Divergent evolution of traits and plasticity across climate gradients in a widespread tree species",
@@ -3340,7 +3340,7 @@
           "route_reason": "keyword-score",
           "booster_points": 2,
           "methods_tier": "none",
-          "digest": "Phenotypic plasticity, not only selection, shapes trait divergence in a widespread Acacia tree across a tropical-savanna-to-desert climate gradient."
+          "digest": "Acacia tortilis populations across a savanna-to-desert gradient show phenotypic plasticity, not just genetic divergence, drives adaptive trait differences at opposing range edges."
         },
         {
           "title": "Assessment of the Biogeography and Molecular Phylogenetics of Sea Cucumbers (Echinodermata: Holothuroidea) in South Africa",
@@ -3355,7 +3355,7 @@
           "route_reason": "keyword-score",
           "booster_points": 0,
           "methods_tier": "none",
-          "digest": "Combines distribution records with mitochondrial phylogenetics to characterise the biogeography and evolutionary history of sea cucumbers along the South African coastline."
+          "digest": "A first molecular phylogeny of South African sea cucumbers, paired with biogeographic analysis, fills a long-standing gap for this understudied echinoderm group."
         },
         {
           "title": "Unravelling a Rapid Radiation: Biogeography and Niche Evolution of Carex sect. Echinochlaenae Kük. (Cyperaceae)",
@@ -3501,6 +3501,21 @@
           "score": 6,
           "primary_theme": "evolution",
           "secondary_theme": null,
+          "low_confidence": false,
+          "route_reason": "keyword-score",
+          "booster_points": 0,
+          "methods_tier": "none",
+          "digest": null
+        },
+        {
+          "title": "The influence of reproductive mode on resource competition and diversity patterns in Ediacaran early animal communities",
+          "journal": "Nature Ecology and Evolution",
+          "publisher": "Nature",
+          "link": "https://www.nature.com/articles/s41559-026-03094-2",
+          "pub": "2026-06-09",
+          "score": 6,
+          "primary_theme": "evolution",
+          "secondary_theme": "community",
           "low_confidence": false,
           "route_reason": "keyword-score",
           "booster_points": 0,
@@ -3763,6 +3778,66 @@
           "digest": null
         },
         {
+          "title": "Rewiring of two conserved signalling hubs into one axis underlies convergent female-specific wing regression in insects",
+          "journal": "Nature Ecology and Evolution",
+          "publisher": "Nature",
+          "link": "https://www.nature.com/articles/s41559-026-03107-0",
+          "pub": "2026-06-17",
+          "score": 3,
+          "primary_theme": "evolution",
+          "secondary_theme": null,
+          "low_confidence": false,
+          "route_reason": "keyword-score",
+          "booster_points": 0,
+          "methods_tier": "none",
+          "digest": null
+        },
+        {
+          "title": "A pitch in time",
+          "journal": "Nature Ecology and Evolution",
+          "publisher": "Nature",
+          "link": "https://www.nature.com/articles/s41559-026-03108-z",
+          "pub": "2026-06-10",
+          "score": 3,
+          "primary_theme": "evolution",
+          "secondary_theme": null,
+          "low_confidence": false,
+          "route_reason": "keyword-score",
+          "booster_points": 0,
+          "methods_tier": "none",
+          "digest": null
+        },
+        {
+          "title": "Pricing nature into sovereign debt",
+          "journal": "Nature Ecology and Evolution",
+          "publisher": "Nature",
+          "link": "https://www.nature.com/articles/s41559-026-03101-6",
+          "pub": "2026-06-05",
+          "score": 3,
+          "primary_theme": "evolution",
+          "secondary_theme": null,
+          "low_confidence": false,
+          "route_reason": "keyword-score",
+          "booster_points": 0,
+          "methods_tier": "none",
+          "digest": null
+        },
+        {
+          "title": "Latitudinal patterns and environmental correlates of plant root exudation",
+          "journal": "Nature Ecology and Evolution",
+          "publisher": "Nature",
+          "link": "https://www.nature.com/articles/s41559-026-03103-4",
+          "pub": "2026-06-05",
+          "score": 3,
+          "primary_theme": "evolution",
+          "secondary_theme": null,
+          "low_confidence": false,
+          "route_reason": "keyword-score",
+          "booster_points": 0,
+          "methods_tier": "none",
+          "digest": null
+        },
+        {
           "title": "Efficient prime editors for heritable multiplex precision genome editing in soybean",
           "journal": "Nature Plants",
           "publisher": "Nature",
@@ -3861,7 +3936,7 @@
           "route_reason": "keyword-score",
           "booster_points": 0,
           "methods_tier": "none",
-          "digest": "A 25-year systematic review finds modern coexistence theory applications have advanced furthest by examining niche and fitness difference mediators, not the original storage-effect focus."
+          "digest": "A 25-year review finds modern coexistence theory advanced more through studying niche and fitness-difference mediators than through its original narrow storage-effect focus."
         },
         {
           "title": "Skin Resistance to Dehydration: A Theory‐Informed Trait Gradient in Anurans",
@@ -3876,7 +3951,7 @@
           "route_reason": "keyword-score",
           "booster_points": 0,
           "methods_tier": "none",
-          "digest": "Tests biophysical first principles for a predicted global cline in frog skin resistance to water loss that alternates geographically with body size."
+          "digest": "Building on biophysical first principles, a global analysis tests for a predicted geographic cline in frog skin resistance to water loss alongside body size."
         }
       ]
     },
@@ -3958,7 +4033,7 @@
       "active": false,
       "muted": true,
       "order": 13,
-      "count": 28,
+      "count": 30,
       "articles": [
         {
           "title": "Rethinking Plant Litter Decomposition Across Global Drylands",
@@ -4027,6 +4102,36 @@
           "link": "https://link.springer.com/article/10.1007/s11104-026-08755-6",
           "pub": "2026-06-17",
           "score": 4,
+          "primary_theme": "soil",
+          "secondary_theme": null,
+          "low_confidence": true,
+          "route_reason": "muted-routing",
+          "booster_points": 0,
+          "methods_tier": "none",
+          "digest": null
+        },
+        {
+          "title": "Shift in Soil Fauna Feeding Mode With Litter Quality Across Forest Biomes",
+          "journal": "Ecology Letters",
+          "publisher": "Wiley",
+          "link": "https://onlinelibrary.wiley.com/doi/10.1111/ele.70421?af=R",
+          "pub": "Sun, 21 Jun 2026 19:48:36 -0700",
+          "score": 3,
+          "primary_theme": "soil",
+          "secondary_theme": null,
+          "low_confidence": false,
+          "route_reason": "muted-routing",
+          "booster_points": 0,
+          "methods_tier": "none",
+          "digest": null
+        },
+        {
+          "title": "Se fertilizer regulation of cadmium pollution in rice fields: Cross- scale mechanisms for Cd reduction and Se enrichment—risk–benefit balance",
+          "journal": "Plant and Soil",
+          "publisher": "Springer",
+          "link": "https://link.springer.com/article/10.1007/s11104-026-08774-3",
+          "pub": "2026-06-22",
+          "score": 3,
           "primary_theme": "soil",
           "secondary_theme": null,
           "low_confidence": true,
@@ -4201,6 +4306,21 @@
           "digest": null
         },
         {
+          "title": "Variation at the ZmCALS5 promoter regulates maize pollen fertility by modulating ZmABI4 binding affinity",
+          "journal": "New Phytologist",
+          "publisher": "Wiley",
+          "link": "https://nph.onlinelibrary.wiley.com/doi/10.1111/nph.71377?af=R",
+          "pub": "Sun, 21 Jun 2026 22:35:53 -0700",
+          "score": 1,
+          "primary_theme": "soil",
+          "secondary_theme": null,
+          "low_confidence": false,
+          "route_reason": "muted-routing",
+          "booster_points": 0,
+          "methods_tier": "none",
+          "digest": null
+        },
+        {
           "title": "A β‐1,3‐glucanase antagonizes a phase‐separating WRKY repressor to confer saline–alkaline tolerance in rice",
           "journal": "New Phytologist",
           "publisher": "Wiley",
@@ -4306,10 +4426,10 @@
           "digest": null
         },
         {
-          "title": "High straw application improves the quality of coastal saline soil despite reducing fungal network stability and resilience",
+          "title": "Leaf litter distribution as a key driver of earthworms in a mature temperate agroforestry system",
           "journal": "Plant and Soil",
           "publisher": "Springer",
-          "link": "https://link.springer.com/article/10.1007/s11104-026-08770-7",
+          "link": "https://link.springer.com/article/10.1007/s11104-026-08743-w",
           "pub": "2026-06-20",
           "score": 1,
           "primary_theme": "soil",
@@ -4321,10 +4441,10 @@
           "digest": null
         },
         {
-          "title": "Leaf litter distribution as a key driver of earthworms in a mature temperate agroforestry system",
+          "title": "High straw application improves the quality of coastal saline soil despite reducing fungal network stability and resilience",
           "journal": "Plant and Soil",
           "publisher": "Springer",
-          "link": "https://link.springer.com/article/10.1007/s11104-026-08743-w",
+          "link": "https://link.springer.com/article/10.1007/s11104-026-08770-7",
           "pub": "2026-06-20",
           "score": 1,
           "primary_theme": "soil",
@@ -4356,21 +4476,6 @@
           "publisher": "Springer",
           "link": "https://link.springer.com/article/10.1007/s11104-026-08721-2",
           "pub": "2026-06-18",
-          "score": 1,
-          "primary_theme": "soil",
-          "secondary_theme": null,
-          "low_confidence": true,
-          "route_reason": "muted-routing",
-          "booster_points": 0,
-          "methods_tier": "none",
-          "digest": null
-        },
-        {
-          "title": "Productivity, carbon dynamics and soil fertility of eucalyptus based agroforestry system under different winter crops",
-          "journal": "Plant and Soil",
-          "publisher": "Springer",
-          "link": "https://link.springer.com/article/10.1007/s11104-026-08715-0",
-          "pub": "2026-06-16",
           "score": 1,
           "primary_theme": "soil",
           "secondary_theme": null,
@@ -4557,11 +4662,11 @@
           "digest": null
         },
         {
-          "title": "Refining Risk Assessment of Perfluoroalkyl Acids in Freshwater Ecosystems Using Submerged Macrophytes as Baseline Organism",
+          "title": "When Wetlands Burn: Land Use, Hydrology, and Policy Interactions in the Paraná River Delta",
           "journal": "Ecosystems",
           "publisher": "Springer",
-          "link": "https://link.springer.com/article/10.1007/s10021-026-01067-x",
-          "pub": "2026-05-11",
+          "link": "https://link.springer.com/article/10.1007/s10021-026-01077-9",
+          "pub": "2026-06-22",
           "score": 1,
           "primary_theme": "aquatic",
           "secondary_theme": null,
@@ -4572,11 +4677,11 @@
           "digest": null
         },
         {
-          "title": "Microbial assemblages of coastal forested wetland soil promote growth of expanding shrub",
-          "journal": "Plant and Soil",
+          "title": "Refining Risk Assessment of Perfluoroalkyl Acids in Freshwater Ecosystems Using Submerged Macrophytes as Baseline Organism",
+          "journal": "Ecosystems",
           "publisher": "Springer",
-          "link": "https://link.springer.com/article/10.1007/s11104-026-08714-1",
-          "pub": "2026-06-16",
+          "link": "https://link.springer.com/article/10.1007/s10021-026-01067-x",
+          "pub": "2026-05-11",
           "score": 1,
           "primary_theme": "aquatic",
           "secondary_theme": null,
@@ -4610,23 +4715,8 @@
       "active": false,
       "muted": false,
       "order": 99,
-      "count": 56,
+      "count": 57,
       "articles": [
-        {
-          "title": "A long-lived butterfly’s secret to graceful ageing",
-          "journal": "Nature",
-          "publisher": "Nature",
-          "link": "https://www.nature.com/articles/d41586-026-01948-0",
-          "pub": "2026-06-19",
-          "score": 0,
-          "primary_theme": "unsorted",
-          "secondary_theme": null,
-          "low_confidence": false,
-          "route_reason": "unsorted",
-          "booster_points": 0,
-          "methods_tier": "none",
-          "digest": null
-        },
         {
           "title": "A novel nursery pollination mutualism between a water primrose and its fruit‐parasitizing weevil",
           "journal": "Ecology",
@@ -4658,6 +4748,21 @@
           "digest": null
         },
         {
+          "title": "Analysis of the Spatial Patterns of Resistance and Resilience of the Tibetan Plateau Ecosystem to Extreme Temperature Based on Carbon Fluxes",
+          "journal": "Ecosystems",
+          "publisher": "Springer",
+          "link": "https://link.springer.com/article/10.1007/s10021-026-01079-7",
+          "pub": "2026-06-22",
+          "score": 0,
+          "primary_theme": "unsorted",
+          "secondary_theme": null,
+          "low_confidence": true,
+          "route_reason": "unsorted",
+          "booster_points": 0,
+          "methods_tier": "none",
+          "digest": null
+        },
+        {
           "title": "Atlas of Arctic bone modification",
           "journal": "Ecology",
           "publisher": "ESA/Wiley",
@@ -4667,6 +4772,21 @@
           "primary_theme": "unsorted",
           "secondary_theme": null,
           "low_confidence": false,
+          "route_reason": "unsorted",
+          "booster_points": 0,
+          "methods_tier": "none",
+          "digest": null
+        },
+        {
+          "title": "Australian",
+          "journal": "Plant and Soil",
+          "publisher": "Springer",
+          "link": "https://link.springer.com/article/10.1007/s11104-026-08751-w",
+          "pub": "2026-06-22",
+          "score": 0,
+          "primary_theme": "unsorted",
+          "secondary_theme": null,
+          "low_confidence": true,
           "route_reason": "unsorted",
           "booster_points": 0,
           "methods_tier": "none",
@@ -4703,15 +4823,15 @@
           "digest": null
         },
         {
-          "title": "Daily briefing: The brain builds a sentence neuron by neuron",
-          "journal": "Nature",
-          "publisher": "Nature",
-          "link": "https://www.nature.com/articles/d41586-026-01967-x",
-          "pub": "2026-06-18",
+          "title": "Contrasting drivers of microbial necromass carbon accumulation during post-abandonment succession in two semi-arid steppes",
+          "journal": "Plant and Soil",
+          "publisher": "Springer",
+          "link": "https://link.springer.com/article/10.1007/s11104-026-08764-5",
+          "pub": "2026-06-22",
           "score": 0,
           "primary_theme": "unsorted",
           "secondary_theme": null,
-          "low_confidence": false,
+          "low_confidence": true,
           "route_reason": "unsorted",
           "booster_points": 0,
           "methods_tier": "none",
@@ -4868,11 +4988,11 @@
           "digest": null
         },
         {
-          "title": "Fungal symbiosis alters non-host, community-level plant trait response to N enrichment in a low-nutrient sand dune system",
-          "journal": "Oecologia",
+          "title": "Functional identity of typhoon-derived green litter overrides functional dissimilarity in reshaping litter faunal feeding guilds in a subtropical forest",
+          "journal": "Plant and Soil",
           "publisher": "Springer",
-          "link": "https://link.springer.com/article/10.1007/s00442-026-05914-5",
-          "pub": "2026-05-31",
+          "link": "https://link.springer.com/article/10.1007/s11104-026-08739-6",
+          "pub": "2026-06-22",
           "score": 0,
           "primary_theme": "unsorted",
           "secondary_theme": null,
@@ -4883,15 +5003,15 @@
           "digest": null
         },
         {
-          "title": "Herbarium specimens reveal drivers of Arctic shrub growth",
-          "journal": "New Phytologist",
-          "publisher": "Wiley",
-          "link": "https://nph.onlinelibrary.wiley.com/doi/10.1111/nph.70285?af=R",
-          "pub": "Thu, 18 Jun 2026 11:58:05 -0700",
+          "title": "Fungal symbiosis alters non-host, community-level plant trait response to N enrichment in a low-nutrient sand dune system",
+          "journal": "Oecologia",
+          "publisher": "Springer",
+          "link": "https://link.springer.com/article/10.1007/s00442-026-05914-5",
+          "pub": "2026-05-31",
           "score": 0,
           "primary_theme": "unsorted",
           "secondary_theme": null,
-          "low_confidence": false,
+          "low_confidence": true,
           "route_reason": "unsorted",
           "booster_points": 0,
           "methods_tier": "none",
@@ -4973,6 +5093,36 @@
           "digest": null
         },
         {
+          "title": "Lighting up the pepper heat",
+          "journal": "New Phytologist",
+          "publisher": "Wiley",
+          "link": "https://nph.onlinelibrary.wiley.com/doi/10.1111/nph.71363?af=R",
+          "pub": "Sun, 21 Jun 2026 22:51:57 -0700",
+          "score": 0,
+          "primary_theme": "unsorted",
+          "secondary_theme": null,
+          "low_confidence": true,
+          "route_reason": "unsorted",
+          "booster_points": 0,
+          "methods_tier": "none",
+          "digest": null
+        },
+        {
+          "title": "Looking beyond stomata: a closer look at water relations in mosses suggests hidden mechanisms for regulating plant water loss",
+          "journal": "New Phytologist",
+          "publisher": "Wiley",
+          "link": "https://nph.onlinelibrary.wiley.com/doi/10.1111/nph.71362?af=R",
+          "pub": "Sun, 21 Jun 2026 20:58:42 -0700",
+          "score": 0,
+          "primary_theme": "unsorted",
+          "secondary_theme": null,
+          "low_confidence": true,
+          "route_reason": "unsorted",
+          "booster_points": 0,
+          "methods_tier": "none",
+          "digest": null
+        },
+        {
           "title": "Mechanisms of local coexistence in juvenile congeneric salmonids in small tributaries with different thermal regimes",
           "journal": "Oecologia",
           "publisher": "Springer",
@@ -5033,21 +5183,6 @@
           "digest": null
         },
         {
-          "title": "Network-Scale Patterns and Drivers of Microcystins in a Heavily Impacted Watershed",
-          "journal": "Ecosystems",
-          "publisher": "Springer",
-          "link": "https://link.springer.com/article/10.1007/s10021-026-01059-x",
-          "pub": "2026-04-20",
-          "score": 0,
-          "primary_theme": "unsorted",
-          "secondary_theme": null,
-          "low_confidence": true,
-          "route_reason": "unsorted",
-          "booster_points": 0,
-          "methods_tier": "none",
-          "digest": null
-        },
-        {
           "title": "Nutrient additions change the agonistic and grazing behavior of an ecosystem engineer on tropical reefs",
           "journal": "Oecologia",
           "publisher": "Springer",
@@ -5093,21 +5228,6 @@
           "digest": null
         },
         {
-          "title": "Organic Carbon Burial Rates in Artificial Ponds Driven by Age and Catchment Land Cover",
-          "journal": "Ecosystems",
-          "publisher": "Springer",
-          "link": "https://link.springer.com/article/10.1007/s10021-026-01057-z",
-          "pub": "2026-04-21",
-          "score": 0,
-          "primary_theme": "unsorted",
-          "secondary_theme": null,
-          "low_confidence": true,
-          "route_reason": "unsorted",
-          "booster_points": 0,
-          "methods_tier": "none",
-          "digest": null
-        },
-        {
           "title": "Payment‐based open access is biasing scientific participation from the Global South in ecology",
           "journal": "Oikos",
           "publisher": "Wiley",
@@ -5117,21 +5237,6 @@
           "primary_theme": "unsorted",
           "secondary_theme": null,
           "low_confidence": false,
-          "route_reason": "unsorted",
-          "booster_points": 0,
-          "methods_tier": "none",
-          "digest": null
-        },
-        {
-          "title": "Precipitation and nitrogen addition regulate aboveground biomass formation pathways through root uptake and leaf photosynthetic physiology in",
-          "journal": "Plant and Soil",
-          "publisher": "Springer",
-          "link": "https://link.springer.com/article/10.1007/s11104-026-08752-9",
-          "pub": "2026-06-16",
-          "score": 0,
-          "primary_theme": "unsorted",
-          "secondary_theme": null,
-          "low_confidence": true,
           "route_reason": "unsorted",
           "booster_points": 0,
           "methods_tier": "none",
@@ -5258,21 +5363,6 @@
           "digest": null
         },
         {
-          "title": "Secondary succession of karst vegetation: fine root traits outweigh plant diversity in defining soil multifunctionality",
-          "journal": "Plant and Soil",
-          "publisher": "Springer",
-          "link": "https://link.springer.com/article/10.1007/s11104-026-08750-x",
-          "pub": "2026-06-16",
-          "score": 0,
-          "primary_theme": "unsorted",
-          "secondary_theme": null,
-          "low_confidence": true,
-          "route_reason": "unsorted",
-          "booster_points": 0,
-          "methods_tier": "none",
-          "digest": null
-        },
-        {
           "title": "Spatial and temporal variation in climate and conflict explains 35 years of developmental plasticity in a polyphenism",
           "journal": "Oikos",
           "publisher": "Wiley",
@@ -5338,6 +5428,21 @@
           "publisher": "Springer",
           "link": "https://link.springer.com/article/10.1007/s00442-026-05919-0",
           "pub": "2026-06-11",
+          "score": 0,
+          "primary_theme": "unsorted",
+          "secondary_theme": null,
+          "low_confidence": true,
+          "route_reason": "unsorted",
+          "booster_points": 0,
+          "methods_tier": "none",
+          "digest": null
+        },
+        {
+          "title": "The geometry of retention: paradoxical consequences of aggregated retention forestry",
+          "journal": "Landscape Ecology",
+          "publisher": "Springer",
+          "link": "https://link.springer.com/article/10.1007/s10980-026-02398-9",
+          "pub": "2026-06-22",
           "score": 0,
           "primary_theme": "unsorted",
           "secondary_theme": null,
@@ -5451,6 +5556,21 @@
           "booster_points": 0,
           "methods_tier": "none",
           "digest": null
+        },
+        {
+          "title": "Water-related ecosystem service response to alternative land management strategies: a re-examination on the impact of afforestation activities",
+          "journal": "Landscape Ecology",
+          "publisher": "Springer",
+          "link": "https://link.springer.com/article/10.1007/s10980-026-02399-8",
+          "pub": "2026-06-22",
+          "score": 0,
+          "primary_theme": "unsorted",
+          "secondary_theme": null,
+          "low_confidence": true,
+          "route_reason": "unsorted",
+          "booster_points": 0,
+          "methods_tier": "none",
+          "digest": null
         }
       ]
     }
@@ -5462,16 +5582,16 @@
       "journal": "Ecography",
       "tier": "introduce",
       "primary_theme": "methods",
-      "note": "Introduces SiteTool, an R Shiny application using remote-sensing data to support unbiased field site selection and evaluation.",
+      "note": "SiteTool: open-source R Shiny app for quantitative, remote-sensing-based field site selection and evaluation.",
       "escapes_mute": true
     },
     {
-      "link": "https://link.springer.com/article/10.1007/s10021-026-01061-3",
-      "title": "Estimation of Forest Soil Organic Carbon Density in Dry Tropical Valleys Based on Multi-source Data and Machine Learning Algorithm",
-      "journal": "Ecosystems",
+      "link": "https://besjournals.onlinelibrary.wiley.com/doi/10.1111/1365-2664.70455?af=R",
+      "title": "Artificial intelligence and decision support in applied ecology",
+      "journal": "Journal of Applied Ecology",
       "tier": "introduce",
       "primary_theme": "methods",
-      "note": "Develops a multi-source machine-learning model to estimate forest soil organic carbon density in dry tropical valleys.",
+      "note": "Proposes a roadmap for responsible AI use in applied-ecology decision support, linking evaluation to decision context.",
       "escapes_mute": true
     },
     {
@@ -5480,7 +5600,7 @@
       "journal": "Journal of Applied Ecology",
       "tier": "introduce",
       "primary_theme": "movement",
-      "note": "Introduces a Bayesian framework integrating Indigenous Knowledge with satellite telemetry data into habitat selection function models.",
+      "note": "New Bayesian approach integrates Indigenous Knowledge with satellite telemetry to improve habitat-selection-function predictions.",
       "escapes_mute": true
     },
     {
@@ -5489,7 +5609,7 @@
       "journal": "Landscape Ecology",
       "tier": "introduce",
       "primary_theme": "methods",
-      "note": "Combines census and remote-sensing data to detect socioeconomic signatures of land-use intensification in Uruguay.",
+      "note": "Combines census and remote-sensing data to trace socioeconomic drivers of land-use intensification in Uruguay.",
       "escapes_mute": true
     },
     {
@@ -5498,7 +5618,16 @@
       "journal": "Landscape Ecology",
       "tier": "introduce",
       "primary_theme": "methods",
-      "note": "Applies an interpretable deep-learning approach to disentangle competing land-use development and restoration drivers of wetland change.",
+      "note": "Interpretable deep-learning model disentangles competing land-use development and restoration drivers of wetland change.",
+      "escapes_mute": true
+    },
+    {
+      "link": "https://besjournals.onlinelibrary.wiley.com/doi/10.1111/2041-210x.70332?af=R",
+      "title": "RAPID: Real‐time animal pattern re‐identification on edge devices, an open‐source tool for field deployment",
+      "journal": "Methods in Ecology and Evolution",
+      "tier": "introduce",
+      "primary_theme": "conservation",
+      "note": "RAPID: an open-source real-time animal re-identification tool deployable on low-power edge devices like drones and camera traps.",
       "escapes_mute": true
     },
     {
@@ -5507,7 +5636,7 @@
       "journal": "Methods in Ecology and Evolution",
       "tier": "introduce",
       "primary_theme": "community",
-      "note": "Presents an open-source, modular acoustic-monitoring prototype combining edge computing and citizen science for continental-scale surveys.",
+      "note": "First open-source modular prototype for continental-scale acoustic biodiversity monitoring combining edge computing and citizen science.",
       "escapes_mute": true
     },
     {
@@ -5516,16 +5645,7 @@
       "journal": "Methods in Ecology and Evolution",
       "tier": "introduce",
       "primary_theme": "conservation",
-      "note": "Introduces a continuous-time REST model that removes the synchronized-activity assumption limiting camera-trap density estimation.",
-      "escapes_mute": true
-    },
-    {
-      "link": "https://besjournals.onlinelibrary.wiley.com/doi/10.1111/2041-210x.70340?af=R",
-      "title": "Optimal deep learning activity recognition pipeline using animal bio‐logging data",
-      "journal": "Methods in Ecology and Evolution",
-      "tier": "introduce",
-      "primary_theme": "methods",
-      "note": "Proposes a standardised deep-learning pipeline for classifying animal activity from bio-logging sensor data across studies.",
+      "note": "New continuous-time REST model for camera-trap density estimation relaxes the often-violated synchronized-activity assumption.",
       "escapes_mute": true
     },
     {
@@ -5534,25 +5654,7 @@
       "journal": "Methods in Ecology and Evolution",
       "tier": "introduce",
       "primary_theme": "methods",
-      "note": "Introduces pylifemap, a Python package for mapping user data onto an interactive taxonomic tree of life.",
-      "escapes_mute": true
-    },
-    {
-      "link": "https://besjournals.onlinelibrary.wiley.com/doi/10.1111/2041-210x.70304?af=R",
-      "title": "AutoPollS: A tool for automated monitoring of pollinators using deep learning",
-      "journal": "Methods in Ecology and Evolution",
-      "tier": "introduce",
-      "primary_theme": "methods",
-      "note": "Introduces AutoPollS, a deep-learning tool for automated, scalable monitoring of insect pollinators beyond passive image capture.",
-      "escapes_mute": true
-    },
-    {
-      "link": "https://nph.onlinelibrary.wiley.com/doi/10.1111/nph.70249?af=R",
-      "title": "Bridging data silos to holistically model plant macrophenology",
-      "journal": "New Phytologist",
-      "tier": "introduce",
-      "primary_theme": "climate",
-      "note": "Proposes a framework for harmonising herbaria, citizen-science, and remote-sensing data sources to model plant macrophenology holistically.",
+      "note": "pylifemap: new Python package for mapping custom data onto the interactive tree of life.",
       "escapes_mute": true
     },
     {
@@ -5561,25 +5663,7 @@
       "journal": "New Phytologist",
       "tier": "introduce",
       "primary_theme": "methods",
-      "note": "Introduces an AI model trained on over 21,000 species to identify Chinese vascular plants from herbarium specimen images.",
-      "escapes_mute": true
-    },
-    {
-      "link": "https://nph.onlinelibrary.wiley.com/doi/10.1111/nph.70645?af=R",
-      "title": "Next‐generation specimen digitization: capturing reflectance spectra from the world's herbaria for modeling plant biology across time, space, and taxa",
-      "journal": "New Phytologist",
-      "tier": "introduce",
-      "primary_theme": "planttraits",
-      "note": "Calls for coordinated global capture of herbarium reflectance spectra to enable cross-scale modelling of plant traits.",
-      "escapes_mute": true
-    },
-    {
-      "link": "https://nph.onlinelibrary.wiley.com/doi/10.1111/nph.70447?af=R",
-      "title": "Herbariograph: a deep‐learning tool to classify specimen images",
-      "journal": "New Phytologist",
-      "tier": "introduce",
-      "primary_theme": "methods",
-      "note": "Introduces Herbariograph, a deep-learning tool to sort herbarium specimen images, the first step in unlocking digitized collections.",
+      "note": "New AI model identifies Chinese vascular plants from herbarium images, trained on over 21,000 species.",
       "escapes_mute": true
     },
     {
@@ -5588,7 +5672,7 @@
       "journal": "Ecography",
       "tier": "advance",
       "primary_theme": "methods",
-      "note": "Combines field trait measurements with four decades of satellite hindcasts to track functional trait change in mountain grassland.",
+      "note": "Combines field trait data with long-term satellite hindcasts to track four decades of foliar-trait change in mountain grassland.",
       "escapes_mute": true
     },
     {
@@ -5597,16 +5681,16 @@
       "journal": "Ecography",
       "tier": "advance",
       "primary_theme": "methods",
-      "note": "Benchmarks machine- and deep-learning joint species distribution models for transferability when biotic interaction structure shifts.",
+      "note": "Benchmarks deep- vs machine-learning joint species distribution models for transferability beyond observed environmental ranges.",
       "escapes_mute": true
     },
     {
-      "link": "https://nsojournals.onlinelibrary.wiley.com/doi/10.1002/ecog.08355?af=R",
-      "title": "The effect of trait choice on hybrid species distribution model projections under climate change",
-      "journal": "Ecography",
+      "link": "https://link.springer.com/article/10.1007/s10021-026-01061-3",
+      "title": "Estimation of Forest Soil Organic Carbon Density in Dry Tropical Valleys Based on Multi-source Data and Machine Learning Algorithm",
+      "journal": "Ecosystems",
       "tier": "advance",
-      "primary_theme": "climate",
-      "note": "Evaluates how trait choice affects projections from hybrid species distribution models combining thermal performance with climate data.",
+      "primary_theme": "methods",
+      "note": "Machine-learning algorithm estimates forest carbon density from multi-source data in dry tropical valleys.",
       "escapes_mute": true
     },
     {
@@ -5615,7 +5699,7 @@
       "journal": "Ecosystems",
       "tier": "advance",
       "primary_theme": "methods",
-      "note": "Combines historic air photos with satellite time-series to extend vegetation-change detection across the forest-tundra ecotone.",
+      "note": "Combines historic air photos with satellite time-series to reconstruct long-term forest-tundra ecotone vegetation change.",
       "escapes_mute": true
     },
     {
@@ -5624,16 +5708,16 @@
       "journal": "Global Change Biology",
       "tier": "advance",
       "primary_theme": "methods",
-      "note": "Perspective clarifying how to disentangle methodological and ecological bias when interpreting satellite vegetation-greening trends.",
+      "note": "Perspective critiques satellite-greening methodology, flagging image-processing and interpretation pitfalls for alpine monitoring.",
       "escapes_mute": true
     },
     {
-      "link": "https://besjournals.onlinelibrary.wiley.com/doi/10.1111/1365-2664.70455?af=R",
-      "title": "Artificial intelligence and decision support in applied ecology",
-      "journal": "Journal of Applied Ecology",
+      "link": "https://besjournals.onlinelibrary.wiley.com/doi/10.1111/2041-210x.70340?af=R",
+      "title": "Optimal deep learning activity recognition pipeline using animal bio‐logging data",
+      "journal": "Methods in Ecology and Evolution",
       "tier": "advance",
       "primary_theme": "methods",
-      "note": "Proposes a roadmap for evaluating and applying AI-based decision support responsibly within applied ecological management.",
+      "note": "Systematically benchmarks deep-learning pipeline choices for classifying animal behaviour from bio-logging data to standardize methods.",
       "escapes_mute": true
     },
     {
@@ -5642,7 +5726,7 @@
       "journal": "Methods in Ecology and Evolution",
       "tier": "advance",
       "primary_theme": "methods",
-      "note": "Benchmarks airborne eDNA filtration against leaf-swab sampling for vertebrate detection, finding longer filtration times perform best.",
+      "note": "Benchmarks airborne eDNA filtration against leaf swabs, finding longer filtration times improve terrestrial vertebrate detection.",
       "escapes_mute": true
     },
     {
@@ -5651,7 +5735,16 @@
       "journal": "Nature Plants",
       "tier": "advance",
       "primary_theme": "biogeography",
-      "note": "Uses Bayesian Brownian Bridge modelling to integrate fossil and molecular data, refining the timing of angiosperm origin.",
+      "note": "Combines fossil data with Bayesian molecular-clock modelling to push back the estimated origin of flowering plants.",
+      "escapes_mute": true
+    },
+    {
+      "link": "https://nph.onlinelibrary.wiley.com/doi/10.1111/nph.70249?af=R",
+      "title": "Bridging data silos to holistically model plant macrophenology",
+      "journal": "New Phytologist",
+      "tier": "advance",
+      "primary_theme": "climate",
+      "note": "Argues for harmonizing herbaria, citizen-science, observatory and remote-sensing data sources into a unified plant macrophenology model.",
       "escapes_mute": true
     },
     {
@@ -5660,8 +5753,26 @@
       "journal": "New Phytologist",
       "tier": "advance",
       "primary_theme": "methods",
-      "note": "Perspective on opportunities and pitfalls of applying AI models to standardised digitized herbarium specimen images.",
+      "note": "Perspective on standardizing herbarium specimen imaging practices to better support AI-based plant identification models.",
       "escapes_mute": true
+    },
+    {
+      "link": "https://nph.onlinelibrary.wiley.com/doi/10.1111/nph.70645?af=R",
+      "title": "Next‐generation specimen digitization: capturing reflectance spectra from the world's herbaria for modeling plant biology across time, space, and taxa",
+      "journal": "New Phytologist",
+      "tier": "advance",
+      "primary_theme": "planttraits",
+      "note": "Calls for coordinated global digitization of herbarium reflectance spectra to enable large-scale plant trait modelling.",
+      "escapes_mute": true
+    },
+    {
+      "link": "https://nsojournals.onlinelibrary.wiley.com/doi/10.1002/ecog.08355?af=R",
+      "title": "The effect of trait choice on hybrid species distribution model projections under climate change",
+      "journal": "Ecography",
+      "tier": "uses",
+      "primary_theme": "climate",
+      "note": "Tests how choice of physiological trait affects projections from hybrid species distribution models under climate change.",
+      "escapes_mute": false
     },
     {
       "link": "https://nsojournals.onlinelibrary.wiley.com/doi/10.1002/ecog.08259?af=R",
@@ -5669,7 +5780,7 @@
       "journal": "Ecography",
       "tier": "uses",
       "primary_theme": "methods",
-      "note": "Applies 24 years of Landsat NDVI data, bias-corrected with phenological modelling, to map Himalayan alpine vegetation-line shifts.",
+      "note": "Applies 24 years of bias-corrected Landsat NDVI data to map Himalayan alpine vegetation-line shifts.",
       "escapes_mute": false
     },
     {
@@ -5678,7 +5789,7 @@
       "journal": "Ecosystems",
       "tier": "uses",
       "primary_theme": "methods",
-      "note": "Applies Sentinel-2 spectral imagery to delineate homogeneous vegetation patches in post-industrial landscapes using established methods.",
+      "note": "Applies spectral guidance to delineate vegetation patches from Sentinel-2 imagery in post-industrial landscapes.",
       "escapes_mute": false
     },
     {
@@ -5687,7 +5798,7 @@
       "journal": "Journal of Applied Ecology",
       "tier": "uses",
       "primary_theme": "population",
-      "note": "Integrates eDNA metabarcoding into species distribution models to improve local fish abundance predictions in coastal waters.",
+      "note": "Applies eDNA metabarcoding within species distribution models to improve local fish abundance predictions.",
       "escapes_mute": false
     },
     {
@@ -5696,7 +5807,7 @@
       "journal": "Methods in Ecology and Evolution",
       "tier": "uses",
       "primary_theme": "community",
-      "note": "Applies airborne eDNA passive sampling to fungal community surveys, examining how accumulation dynamics differ from other taxa.",
+      "note": "Reviews methodological challenges in applying airborne eDNA sampling to fungal community surveys.",
       "escapes_mute": false
     },
     {
@@ -5705,7 +5816,7 @@
       "journal": "Methods in Ecology and Evolution",
       "tier": "uses",
       "primary_theme": "community",
-      "note": "Reinterprets short-term airborne eDNA variability for fungi by comparing accumulation patterns with plants and vertebrates.",
+      "note": "Reinterprets short-term airborne eDNA temporal variability through a fungal-ecology lens, comparing to plant and vertebrate patterns.",
       "escapes_mute": false
     },
     {
@@ -5714,25 +5825,16 @@
       "journal": "Molecular Ecology",
       "tier": "uses",
       "primary_theme": "community",
-      "note": "Applies DNA metabarcoding to characterise diet and gut microbiome links in a recovering whale population.",
+      "note": "Applies DNA metabarcoding and gut microbiome data to characterize diet shifts in recovering southern right whales.",
       "escapes_mute": false
     },
     {
-      "link": "https://nph.onlinelibrary.wiley.com/doi/10.1111/nph.70139?af=R",
-      "title": "Long‐term trends in global flowering phenology",
-      "journal": "New Phytologist",
+      "link": "https://www.nature.com/articles/s41559-026-03104-3",
+      "title": "Dwarf mongooses pre-emptively alter their behaviour relative to the threat posed by different rival groups",
+      "journal": "Nature Ecology and Evolution",
       "tier": "uses",
-      "primary_theme": "climate",
-      "note": "Trains a convolutional neural network on herbarium images to track centuries-long global trends in flowering phenology.",
-      "escapes_mute": false
-    },
-    {
-      "link": "https://nph.onlinelibrary.wiley.com/doi/10.1111/nph.70258?af=R",
-      "title": "Using reflectance spectra and Pl@ntNet to identify herbarium specimens: a case study with Lithocarpus",
-      "journal": "New Phytologist",
-      "tier": "uses",
-      "primary_theme": "methods",
-      "note": "Tests combining hyperspectral reflectance with the Pl@ntNet identification tool on a Lithocarpus herbarium case study.",
+      "primary_theme": "movement",
+      "note": "Uses 10 years of GPS and behavioural data to show mongooses adjust space use and sentinel calling to rival-group threat level.",
       "escapes_mute": false
     }
   ]
