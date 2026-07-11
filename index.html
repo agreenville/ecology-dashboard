@@ -20,6 +20,7 @@
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);height:100vh;overflow:hidden;font-size:14px}
 #app{display:flex;height:100vh}
 #sb{width:210px;min-width:210px;background:var(--sb);color:#e2e8f0;display:flex;flex-direction:column;padding:18px 14px;overflow-y:auto;flex-shrink:0}
+#sb-right{width:190px;min-width:190px;background:var(--sb);color:#e2e8f0;display:flex;flex-direction:column;padding:18px 14px;overflow-y:auto;flex-shrink:0}
 .sb-name{font-size:14px;font-weight:700;color:#f1f5f9;letter-spacing:-.01em}.sb-leaf{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;background:rgba(255,255,255,.08);margin-right:2px;transition:transform .3s ease}.sb-name:hover .sb-leaf{transform:rotate(-12deg) scale(1.1)}
 .sb-tag{font-size:11px;color:rgba(223,238,230,.55);margin-top:2px;margin-bottom:20px}
 .sb-sec{border-top:1px solid rgba(255,255,255,.08);padding:12px 0}
@@ -127,7 +128,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
 .fchip.on{background:var(--acc);border-color:var(--acc);color:#fff}
 .gsrch{width:220px;border:1px solid var(--bdr);border-radius:20px;padding:4px 12px;font-size:12px;font-family:inherit;color:var(--text);background:#fff;transition:border-color .15s}
 .gsrch:focus{outline:none;border-color:var(--acc)}
-@media(max-width:680px){#sb{display:none}.ggrid{grid-template-columns:1fr}}
+@media(max-width:680px){#sb{display:none}#sb-right{display:none}.ggrid{grid-template-columns:1fr}}
 
 .brief{background:linear-gradient(120deg,var(--acc2),var(--ochre-bg));border:1px solid var(--bdr);border-radius:var(--r);padding:14px 16px;font-size:13px;line-height:1.7;color:var(--text);margin-bottom:16px;box-shadow:var(--sh)}
 .briefhdr{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:var(--acc-d);margin-bottom:6px}
@@ -194,13 +195,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
     <div class="sb-row"><div class="sb-tn">&#128240; Journal Watch</div><div class="sb-t no" id="rt-j">Not loaded</div></div>
     <div class="sb-row"><div class="sb-tn">&#128176; Grants</div><div class="sb-t no" id="rt-g">Not loaded</div></div>
   </div>
-  <div class="sb-sec"><div class="sb-lbl">Sources</div><div class="sb-val">RSS &middot; OpenAlex</div></div>
-  <div class="sb-sec" id="sb-themes-j">
-    <div class="sb-lbl">Themes &mdash; select to show</div>
-    <div id="jw-ck-active"></div>
-    <div class="sb-lbl">Muted by default</div>
-    <div id="jw-ck-muted"></div>
-  </div>
+  <div class="sb-sec" id="sb-sources-j"><div class="sb-lbl">Sources</div><div class="sb-val">RSS &middot; OpenAlex</div></div>
   <div class="sb-sec" id="sb-nav-j">
     <div class="sb-lbl">Jump to</div>
     <div class="sb-nav" id="sb-nav-links"></div>
@@ -667,6 +662,14 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
 </div><!-- end #pan-student-grants -->
   </div>
 </div>
+<aside id="sb-right">
+  <div class="sb-sec" id="sb-themes-j">
+    <div class="sb-lbl">Themes &mdash; select to show</div>
+    <div id="jw-ck-active"></div>
+    <div class="sb-lbl">Muted by default</div>
+    <div id="jw-ck-muted"></div>
+  </div>
+</aside>
 </div>
 <script>
 'use strict';
@@ -869,7 +872,7 @@ function renderGrants(){
 }
 function jumpTo(id){const el=document.getElementById(id);if(el){document.getElementById('cont').scrollTo({top:el.offsetTop-8,behavior:'smooth'});}}
 function updateActiveNav(){const cont=document.getElementById('cont');const links=document.querySelectorAll('#sb-nav-links a[data-target]');if(!cont||!links.length)return;const top=cont.scrollTop+30;let cur=links[0];links.forEach(a=>{const t=document.getElementById(a.dataset.target);if(t&&t.offsetTop<=top)cur=a;});links.forEach(a=>a.classList.toggle('current',a===cur));}
-document.getElementById('tabbar').addEventListener('click',e=>{const b=e.target.closest('[data-tab]');if(!b)return;document.querySelectorAll('.tb').forEach(x=>x.classList.remove('on'));document.querySelectorAll('.pan').forEach(x=>x.classList.remove('on'));b.classList.add('on');document.getElementById('pan-'+b.dataset.tab).classList.add('on');const nav=document.getElementById('sb-nav-j');if(nav)nav.style.display=b.dataset.tab==='j'?'':'none';const tj=document.getElementById('sb-themes-j');if(tj)tj.style.display=b.dataset.tab==='j'?'':'none';});
+document.getElementById('tabbar').addEventListener('click',e=>{const b=e.target.closest('[data-tab]');if(!b)return;document.querySelectorAll('.tb').forEach(x=>x.classList.remove('on'));document.querySelectorAll('.pan').forEach(x=>x.classList.remove('on'));b.classList.add('on');document.getElementById('pan-'+b.dataset.tab).classList.add('on');const isJ=b.dataset.tab==='j';const nav=document.getElementById('sb-nav-j');if(nav)nav.style.display=isJ?'':'none';const tj=document.getElementById('sb-themes-j');if(tj)tj.style.display=isJ?'':'none';const src=document.getElementById('sb-sources-j');if(src)src.style.display=isJ?'':'none';const sr=document.getElementById('sb-right');if(sr)sr.style.display=isJ?'':'none';});
 document.getElementById('btn-j').addEventListener('click',loadJW);
 document.getElementById('cont').addEventListener('scroll',updateActiveNav,{passive:true});
 document.getElementById('sb-date').textContent=new Date().toLocaleDateString('en-AU',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
