@@ -678,7 +678,7 @@ const TARGET=['Global Change Biology','Journal of Ecology','Ecology Letters','Gl
 const Q1SET=['nature ecology','nature climate','global change biology','ecology letters','journal of ecology','global ecology','functional ecology','new phytologist','ecological monographs','proceedings of the national','pnas','current biology','trends in ecology','journal of applied ecology','ecosystems ','landscape ecology','plant and soil','oecologia','american naturalist','nature communications','journal of biogeography','molecular ecology','oikos','annual review of ecology','biotropica','journal of animal ecology','philosophical transactions','conservation biology','biological conservation','diversity and distributions','science advances','science ','nature '];
 const THEMES={climate:{label:'Climate Change & Global Change',icon:'\u{1F321}️',col:'#dc2626',bg:'#fef2f2'},fire:{label:'Fire, Disturbance & Carbon',icon:'\u{1F525}',col:'#ea580c',bg:'#fff7ed'},plant:{label:'Plant Ecology & Physiology',icon:'\u{1F331}',col:'#16a34a',bg:'#f0fdf4'},animal:{label:'Animal Ecology & Wildlife',icon:'\u{1F981}',col:'#b45309',bg:'#fffbeb'},landscape:{label:'Landscape & Spatial Ecology',icon:'\u{1F5FA}️',col:'#0284c7',bg:'#f0f9ff'},ecosystem:{label:'Ecosystem Processes & Biogeochemistry',icon:'\u{1F4A7}',col:'#0891b2',bg:'#ecfeff'},soil:{label:'Plant–Soil Interactions',icon:'\u{1F33E}',col:'#92400e',bg:'#fef3c7'},biogeography:{label:'Biogeography & Macroecology',icon:'\u{1F30D}',col:'#7c3aed',bg:'#f5f3ff'},conservation:{label:'Conservation & Applied Ecology',icon:'\u{1F6E1}️',col:'#0f766e',bg:'#f0fdfa'},methods:{label:'New Methods & Analytical Tools',icon:'\u{1F52C}',col:'#475569',bg:'#f8fafc'}};
 const S={jLivePapers:[],jRssPapers:[],jLoading:false,cachedAt:'',rssDebug:'',sort:''};
-let CACHED_SUMMARY={generated_at:'',source_fetched_at:'',article_count:0,narrative:'',muted_default:['disease','soil','aquatic'],themes:[],methods_radar:[]};
+let CACHED_SUMMARY={generated_at:'',source_fetched_at:'',article_count:0,narrative:'',muted_default:['disease','soil','aquatic','molecular'],themes:[],methods_radar:[]};
 const THEME_STYLE={fire:{col:'#ea580c',bg:'#fff7ed'},climate:{col:'#dc2626',bg:'#fef2f2'},movement:{col:'#0284c7',bg:'#f0f9ff'},population:{col:'#9333ea',bg:'#faf5ff'},community:{col:'#16a34a',bg:'#f0fdf4'},conservation:{col:'#0f766e',bg:'#f0fdfa'},methods:{col:'#475569',bg:'#f8fafc'},biogeography:{col:'#4338ca',bg:'#eef2ff'},planttraits:{col:'#65a30d',bg:'#f7fee7'},evolution:{col:'#be185d',bg:'#fdf2f8'},theory:{col:'#7c3aed',bg:'#f5f3ff'},disease:{col:'#b91c1c',bg:'#fef2f2'},soil:{col:'#92400e',bg:'#fef3c7'},aquatic:{col:'#0e7490',bg:'#ecfeff'},landscape:{col:'#78716c',bg:'#f5f5f4'},flux:{col:'#ca8a04',bg:'#fefce8'},unsorted:{col:'#64748b',bg:'#f1f5f9'}};
 const MUTE_KEY='jw_muted_themes_v1';
 function loadMuteState(){let stored=null;try{const raw=localStorage.getItem(MUTE_KEY);if(raw)stored=JSON.parse(raw);}catch(e){}const muted={};const defaults=CACHED_SUMMARY.muted_default||[];(CACHED_SUMMARY.themes||[]).forEach(t=>{muted[t.key]=stored?stored.includes(t.key):(defaults.includes(t.key)||t.key==='unsorted');});return muted;}
@@ -704,6 +704,7 @@ const AU_MON={Jan:0,Feb:1,Mar:2,Apr:3,May:4,Jun:5,Jul:6,Aug:7,Sep:8,Oct:9,Nov:10
 function setStudentGrantsRT(){const el=document.getElementById('rt-s');const panel=document.getElementById('pan-student-grants');if(!el||!panel){return;}const txt=panel.textContent||'';const re=/Last [Cc]hecked:?\s*(\d{1,2}\s+\w{3,9}\s+\d{4})/g;const dates=[];let m;while((m=re.exec(txt))){const d=parseAuDate(m[1]);if(d)dates.push(d);}if(!dates.length){el.textContent='Not loaded';el.className='sb-t no';return;}const latest=new Date(Math.max(...dates.map(d=>d.getTime())));el.textContent=latest.toLocaleDateString('en-AU',{day:'numeric',month:'short',year:'numeric'})+' (monthly)';el.className='sb-t static';}
 function loading(m,s){return`<div class="lwrap"><div class="spin"></div><div class="lmsg">${esc(m)}</div>${s?`<div class="lstep">${esc(s)}</div>`:''}</div>`}
 function empty(i,t,m){return`<div class="ewrap"><div class="eico">${i}</div><div class="etit">${esc(t)}</div><div class="emsg">${esc(m)}</div></div>`}
+/* JW_BEGIN */
 /* == Journal Watch deterministic theme classifier ============================
    Client-side port of rss_score.py's PRIMARY-theme assignment + muted-routing,
    used to group the live "Just Published" feed into the same theme accordions
@@ -711,10 +712,16 @@ function empty(i,t,m){return`<div class="ewrap"><div class="eico">${i}</div><div
    across dashboard_template.html and github-pages/index.html (anti-drift rule),
    and is exercised unchanged by the Node parity harness (jw_parity_harness.js).
 
+   *** GENERATED FILE — DO NOT HAND-EDIT. ***
+   Edit the theme tables in rss_score.py, then run:
+       python3 gen_jw_classifier.py --embed && node jw_parity_harness.js
+
    Deterministic only -- NO LLM / model-inference fallback anywhere in the path.
 
    Faithful to rss_score.py for everything that can change the primary theme:
      - core x3 + secondary x1 keyword scoring, matched on title + desc/abstract
+     - the "comment" theme matches on TITLE ONLY (its cue words are diagnostic
+       in a title but commonplace inside an abstract)
      - case-insensitive, word-boundary matching; hyphen/space variants equal;
        unicode hyphens/dashes normalised to ASCII '-' (Wiley feeds use U+2010)
      - cascade-order tiebreak (first theme in array order wins an equal score)
@@ -722,7 +729,9 @@ function empty(i,t,m){return`<div class="ewrap"><div class="eico">${i}</div><div
        present AND no terrestrial core term matched)
      - muted-routing precedence (a strongly-muted paper routes to the muted
        bucket before active assignment; same threshold as rss_score.py)
-     - journal-hint fallback for zero-score papers; else "unsorted"
+     - journal-hint fallback for zero-score papers, then the short-title rule
+       (a very short title with no real abstract is a highlight/profile, not a
+       paper -> "comment"), else "unsorted"
      - admin/editorial titles skipped (no theme)
 
    Deliberate simplifications (each verified NOT to change primary_theme, so the
@@ -732,72 +741,95 @@ function empty(i,t,m){return`<div class="ewrap"><div class="eico">${i}</div><div
        include them -- so they never alter which theme is primary. Parity-safe.
      - secondary_theme, low_confidence and the Methods "uses" radar signal are
        not ported: they are digest-pipeline outputs, irrelevant to grouping the
-       live feed by primary theme.
-   Keyword lists below are transcribed verbatim from rss_score.py (including its
-   REVIEW-tagged additions) so the two classifiers agree term-for-term. ===== */
+       live feed by primary theme. ===== */
 const JW_ACTIVE=[
- {key:'fire',label:'Fire & disturbance',emoji:'\u{1F525}',
-  core:['fire','wildfire','megafire','fire severity','post-fire recovery','fire regime','prescribed burning','pyrodiversity','fire mosaic','black summer'],
-  secondary:['disturbance','burnt area','fire history','fuel','fire-invasion interaction','press-pulse','compound disturbance','recovery trajectory']},
- {key:'climate',label:'Climate-change responses',emoji:'\u{1F321}️',
-  core:['climate change','range shift','climate refugia','microrefugia','drought','warming','climate-driven'],
-  secondary:['climate envelope','niche truncation','thermal tolerance','climate projection','heatwave','aridification','future climate scenario']},
- {key:'movement',label:'Animal movement & spatial ecology',emoji:'\u{1F98C}',
-  core:['movement ecology','home range','gps telemetry','resource selection','habitat selection','space use','dispersal'],
-  secondary:['step-selection','animal tracking','utilisation distribution','utilization distribution','connectivity','landscape resistance','accelerometer','bio-logging','movement analysis']},
- {key:'population',label:'Population & demographic dynamics',emoji:'\u{1F4C8}',
-  core:['population dynamics','demography','survival','recruitment','abundance','population viability','mark-recapture'],
-  secondary:['density estimation','boom-bust','irruption','vital rates','matrix model','population trend','capture-recapture','occupancy dynamics','life-history','lifetime reproductive success','parental care','philopatry','territory inheritance','carryover effect','natal dispersal','reproductive success']},
- {key:'community',label:'Community ecology & species interactions',emoji:'\u{1F91D}',
-  core:['community ecology','species interactions','predator-prey','trophic','biodiversity','assemblage','competition'],
-  secondary:['mesopredator','food web','co-occurrence','joint species distribution','multivariate','diversity patterns','facilitation','trophic cascade','pollinator','pollination','plant-pollinator network','pollinator community','mutualism','flower visitation','pollen']},
- {key:'landscape',label:'Landscape structure & land use',emoji:'\u{1F3DE}\u{FE0F}',
-  core:['landscape structure','landscape composition','landscape configuration','landscape heterogeneity','landscape pattern','land use','land-use change','agricultural landscape','forestry','clearcut','afforestation'],
-  secondary:['land management','farmland','habitat heterogeneity','habitat fragmentation','landscape context','mosaic landscape','retention forestry','urban-rural','edge effect','habitat patch']},
- {key:'conservation',label:'Conservation & management',emoji:'\u{1F6E1}️',
-  core:['conservation','threatened species','invasive species','predator control','extinction risk','recovery','reintroduction','restoration'],
-  secondary:['feral predators','management intervention','priority species','threatened-species recovery','protected area','biodiversity offset','reference states','long-term monitoring','monitoring program','ecosystem function','soundscape']},
- {key:'methods',label:'Methods & remote sensing',emoji:'\u{1F6F0}️',
-  core:['remote sensing','satellite','google earth engine','lidar','camera trap','acoustic monitoring','machine learning','species distribution model','baci','artificial intelligence','deep-learning','neural network'],
-  secondary:['passive acoustics','autonomous recording unit','deep learning','occupancy model','multivariate methods','drone','uav','sentinel','landsat','automated detection','gis','monitoring design','before-after-control-impact','random forest','photogrammetry','hyperspectral','multispectral','r package','computer vision']},
- {key:'biogeography',label:'Biogeography & macroecology',emoji:'\u{1F5FA}️',
-  core:['biogeography','macroecology','ecological niche','niche modelling','niche modeling','climatic niche','diversity gradient','latitudinal gradient','species-area relationship','beta diversity','endemism','geographic range'],
-  secondary:['sdm','enm','environmental niche','niche dynamics','hypervolume','occurrence data','wallacean shortfall','island biogeography','phylogeography','dispersal limitation','bioclimatic','range size','biodiversity gradient']},
- {key:'flux',label:'Ecosystem carbon & water flux',emoji:'\u{1F30D}',
-  core:['eddy covariance','carbon flux','net ecosystem exchange','vapor pressure deficit','vapour pressure deficit','vegetation productivity','primary productivity','ecosystem productivity'],
-  secondary:['gpp','vpd','evapotranspiration','solar-induced fluorescence','carbon uptake','ecosystem stability','ecosystem resilience','stomatal conductance','photosynthesis']},
- {key:'planttraits',label:'Plant traits & physiology',emoji:'\u{1F33F}',
-  core:['functional traits','plant traits','trait-based','functional diversity','austraits','vegetation structure'],
-  secondary:['leaf economics','plant functional type','drought tolerance','ecophysiology','trait-environment','canopy structure','water-use efficiency','root traits','stem traits','leaf traits','trait variation']},
- {key:'evolution',label:'Evolution & molecular ecology',emoji:'\u{1F9EC}',
-  core:['evolution','evolutionary','phylogenetics','phylogeny','population genetics','gene flow','genetic divergence','adaptation','natural selection','genome','diversification'],
-  secondary:['molecular ecology','polyploidy','gene expression','local adaptation','speciation','heritability','inbreeding','genomic','hybridisation','hybridization','eco-evolutionary','phenotypic plasticity','microevolution','gene regulation','transcription factor','abscisic acid','rna interference','cryptochrome','signalling pathway','signaling pathway','arabidopsis','photoreceptor']},
- {key:'theory',label:'Theory',emoji:'\u{1F9E0}',
-  core:['ecological theory','theoretical framework','conceptual framework','unifying framework','coexistence theory','metabolic theory','optimal foraging theory','neutral theory'],
-  secondary:['niche theory','scaling theory','first principles','general theory','mechanistic theory']}
+ {key:"fire",label:"Fire & disturbance",emoji:"\ud83d\udd25",
+  core:["fire","wildfire","megafire","fire severity","post-fire recovery","fire regime","prescribed burning","pyrodiversity","fire mosaic","black summer"],
+  secondary:["disturbance","burnt area","fire history","fuel","fire-invasion interaction","press-pulse","compound disturbance","recovery trajectory","outbreak","insect outbreak","bark beetle","windthrow","wind disturbance","growth release","storm damage"]},
+ {key:"climate",label:"Climate-change responses",emoji:"\ud83c\udf21\ufe0f",
+  core:["climate change","range shift","climate refugia","microrefugia","drought","warming","climate-driven"],
+  secondary:["climate envelope","niche truncation","thermal tolerance","climate projection","heatwave","aridification","future climate scenario","climate variability","phenology","spring phenology","flowering time","leaf-out","growing season length","growing degree day"]},
+ {key:"movement",label:"Animal movement & spatial ecology",emoji:"\ud83e\udd8c",
+  core:["movement ecology","home range","gps telemetry","resource selection","habitat selection","space use","dispersal"],
+  secondary:["step-selection","animal tracking","utilisation distribution","utilization distribution","connectivity","landscape resistance","accelerometer","bio-logging","movement analysis"]},
+ {key:"behaviour",label:"Behaviour & sociality",emoji:"\ud83e\udd8e",
+  core:["behaviour","behavior","behavioural ecology","behavioral ecology","foraging behaviour","foraging behavior","sociality","social behaviour","social behavior","mating system","thermoregulation","boldness","animal personality","vigilance","aggression","territoriality","dominance hierarchy","courtship","animal communication","animal signal"],
+  secondary:["activity pattern","diel activity","circadian","anti-predator","predator avoidance","risk-taking","learning","cognition","social network","group living","cooperative breeding","parental care","philopatry","territory inheritance","carryover effect","mate choice","sexual selection","acoustic signal","colour signal","color signal","lifetime reproductive success","reproductive success","nest site","boldness-shyness","conspecific attraction","nest box","nest switching","lifetime reproduction","chemical signal","visual signal","signalling","signaling","avoidance behaviour","avoidance behavior","human disturbance","human settlement"]},
+ {key:"population",label:"Population & demographic dynamics",emoji:"\ud83d\udcc8",
+  core:["population dynamics","demography","survival","recruitment","abundance","population viability","mark-recapture"],
+  secondary:["density estimation","boom-bust","irruption","vital rates","matrix model","population trend","capture-recapture","occupancy dynamics","life-history","natal dispersal"]},
+ {key:"trophic",label:"Trophic ecology & food webs",emoji:"\ud83c\udf7d\ufe0f",
+  core:["food web","trophic","diet","diet composition","trophic niche","predator-prey","omnivory","stable isotope","trophic cascade","prey selection","foraging ecology","trophic interaction"],
+  secondary:["gut content","diet breadth","resource use","prey availability","feeding rate","consumer-resource","trophic level","isotopic niche","scavenging","nutrient transfer","seed predation","mesopredator","prey base","dietary overlap","food resource","predation rate"]},
+ {key:"herbivory",label:"Plant\u2013herbivore interactions & defence",emoji:"\ud83d\udc1b",
+  core:["herbivory","plant defence","plant defense","anti-herbivore","plant-herbivore","induced defence","induced defense","allelopathy","allelochemical","chemical defence","chemical defense","secondary metabolite"],
+  secondary:["leaf damage","folivory","insect herbivore","defence compound","defense compound","terpene","phenolic","tannin","latex","trichome","plant resistance","palatability","honeydew","sap-feeding","galling","granivory"]},
+ {key:"symbiosis",label:"Plant\u2013microbe & mycorrhizal symbiosis",emoji:"\ud83c\udf44",
+  core:["mycorrhiza","mycorrhizal","arbuscular mycorrhizal","ectomycorrhizal","plant-microbe","plant-soil feedback","symbiosis","symbiont","rhizobia","endophyte","mutualistic fungi"],
+  secondary:["fungal symbiosis","root fungi","microbiome","rhizosphere","inoculation","hyphae","mycelial network","soil fungi","fungal community","biocrust","biological soil crust","lichen","diazotroph","nodulation","fungal guild"]},
+ {key:"invasion",label:"Invasion ecology",emoji:"\ud83d\udc63",
+  core:["invasive species","invasion","alien species","non-native species","exotic species","biological invasion","invasive plant","invasion ecology","invasive population"],
+  secondary:["naturalised","naturalized","introduced species","propagule pressure","enemy release","invasional meltdown","invasive spread","weed","biotic resistance","establishment success","invasion front","non-indigenous"]},
+ {key:"community",label:"Community ecology & species interactions",emoji:"\ud83e\udd1d",
+  core:["community ecology","species interactions","biodiversity","assemblage","competition"],
+  secondary:["co-occurrence","joint species distribution","multivariate","diversity patterns","facilitation","pollinator","pollination","plant-pollinator network","pollinator community","mutualism","flower visitation","pollen"]},
+ {key:"grazing",label:"Grazing, rangelands & agroecology",emoji:"\ud83d\udc04",
+  core:["grazing","livestock","rangeland","pasture","grazing management","stocking rate","grazing exclusion","agroecology","pastoral"],
+  secondary:["cattle","sheep","herbivore exclusion","grassland management","mowing","hay meadow","silvopasture","rotational grazing","grazing intensity","defoliation","agricultural intensification","food security","grazing pressure","browsing pressure"]},
+ {key:"landscape",label:"Landscape structure & land use",emoji:"\ud83c\udfde\ufe0f",
+  core:["landscape structure","landscape composition","landscape configuration","landscape heterogeneity","landscape pattern","land use","land-use change","agricultural landscape","forestry","clearcut","afforestation"],
+  secondary:["land management","farmland","habitat heterogeneity","habitat fragmentation","landscape context","mosaic landscape","retention forestry","urban-rural","edge effect","habitat patch","landscape optimization","landscape optimisation","landscape planning","spatial planning","terraced landscape"]},
+ {key:"conservation",label:"Conservation & management",emoji:"\ud83d\udee1\ufe0f",
+  core:["conservation","threatened species","predator control","extinction risk","recovery","reintroduction","restoration"],
+  secondary:["feral predators","management intervention","priority species","threatened-species recovery","protected area","biodiversity offset","reference states","long-term monitoring","monitoring program","ecosystem function","soundscape","mitigation measure","industrial development","human footprint"]},
+ {key:"methods",label:"Methods & remote sensing",emoji:"\ud83d\udef0\ufe0f",
+  core:["remote sensing","satellite","google earth engine","lidar","camera trap","acoustic monitoring","machine learning","species distribution model","baci","artificial intelligence","deep-learning","neural network"],
+  secondary:["passive acoustics","autonomous recording unit","deep learning","occupancy model","multivariate methods","drone","uav","sentinel","landsat","automated detection","gis","monitoring design","before-after-control-impact","random forest","photogrammetry","hyperspectral","multispectral","r package","computer vision","airborne laser scanning","laser scanning","automated mapping","sampling design","interaction network"]},
+ {key:"biogeography",label:"Biogeography & macroecology",emoji:"\ud83d\uddfa\ufe0f",
+  core:["biogeography","macroecology","ecological niche","niche modelling","niche modeling","climatic niche","diversity gradient","latitudinal gradient","species-area relationship","beta diversity","endemism","geographic range"],
+  secondary:["sdm","enm","environmental niche","niche dynamics","hypervolume","occurrence data","wallacean shortfall","island biogeography","phylogeography","dispersal limitation","bioclimatic","range size","biodiversity gradient"]},
+ {key:"flux",label:"Ecosystem carbon & water flux",emoji:"\ud83c\udf0d",
+  core:["eddy covariance","carbon flux","net ecosystem exchange","vapor pressure deficit","vapour pressure deficit","vegetation productivity","primary productivity","ecosystem productivity"],
+  secondary:["gpp","vpd","evapotranspiration","solar-induced fluorescence","carbon uptake","ecosystem stability","ecosystem resilience","stomatal conductance","photosynthesis","carbon turnover","vegetation carbon","forest carbon","biomass stability","biomass estimate","methane","methane emission","nitrous oxide","greenhouse gas flux","temporal stability","community stability","asynchrony","portfolio effect","statistical averaging"]},
+ {key:"planttraits",label:"Plant traits & physiology",emoji:"\ud83c\udf3f",
+  core:["functional traits","plant traits","trait-based","functional diversity","austraits","vegetation structure"],
+  secondary:["leaf economics","plant functional type","drought tolerance","ecophysiology","trait-environment","canopy structure","water-use efficiency","root traits","stem traits","leaf traits","trait variation"]},
+ {key:"evolution",label:"Evolution & molecular ecology",emoji:"\ud83e\uddec",
+  core:["evolution","evolutionary","phylogenetics","phylogeny","population genetics","gene flow","genetic divergence","adaptation","natural selection","genome","diversification"],
+  secondary:["molecular ecology","polyploidy","local adaptation","speciation","heritability","inbreeding","genomic","hybridisation","hybridization","eco-evolutionary","phenotypic plasticity","microevolution"]},
+ {key:"theory",label:"Theory",emoji:"\ud83e\udde0",
+  core:["ecological theory","theoretical framework","conceptual framework","unifying framework","coexistence theory","metabolic theory","optimal foraging theory","neutral theory"],
+  secondary:["niche theory","scaling theory","first principles","general theory","mechanistic theory"]},
+ {key:"comment",label:"General interest & comment",emoji:"\ud83d\udcf0",
+  core:["opinion piece","commentary","perspective","viewpoint","forum","position paper","rebuttal","correspondence","news feature","research highlight","book review","obituary","in memoriam","a reply to","a response to"],
+  secondary:["we argue","reflections","essay","debate","controversy","terminology","conceptual clarification","a comment on","food for thought","in defence of","in defense of"]}
 ];
 const JW_MUTED=[
- {key:'disease',label:'Disease & host–parasite',emoji:'\u{1F9A0}',
-  routing:['disease','pathogen','parasite','parasitoid','infection','infectious','host-parasite','epidemiology','transmission','virus','viral','bacterial','fungal pathogen','helminth','immune response','zoonotic','spillover','avian influenza','yellow fever','malaria','disease dynamics']},
- {key:'soil',label:'Soil & biogeochemistry',emoji:'\u{1F331}',
-  routing:['soil carbon','soil organic carbon','soil organic matter','decomposition','litter decomposition','nutrient cycling','nitrogen cycling','mineralisation','mineralization','priming effect','soil respiration','microbial biomass','soil microbiome','soil microbial','mycorrhiza','mycorrhizal','soil enzyme','nutrient stoichiometry','biogeochemistry','carbon stocks','rhizosphere','rice','maize','wheat','crop','cropland','fertiliser','fertilizer','urea','straw','paddy','agroforestry','selenium','cadmium','grain','soybean','manure','tillage','nitrogen fixation','fertilization','fertilisation','diazotroph','endophyte','phosphorus supply','root exudate','mulching','sugarcane','liana']},
- {key:'aquatic',label:'Aquatic, marine & freshwater',emoji:'\u{1F41F}',
-  routing:['marine','ocean','oceanic','coral','reef','freshwater','aquatic','stream','river','riverine','lake','pond','wetland','estuary','estuarine','benthic','pelagic','plankton','phytoplankton','fish','fisheries','seagrass','kelp','macroalgae','seabird','intertidal','submerged macrophyte']}
+ {key:"disease",label:"Disease & host\u2013parasite",emoji:"\ud83e\udda0",
+  routing:["disease","pathogen","parasite","parasitoid","infection","infectious","host-parasite","epidemiology","transmission","virus","viral","bacterial","fungal pathogen","helminth","immune response","zoonotic","spillover","avian influenza","yellow fever","malaria","disease dynamics"]},
+ {key:"soil",label:"Soil & biogeochemistry",emoji:"\ud83c\udf31",
+  routing:["soil carbon","soil organic carbon","soil organic matter","decomposition","litter decomposition","nutrient cycling","nitrogen cycling","mineralisation","mineralization","priming effect","soil respiration","microbial biomass","soil microbiome","soil microbial","soil enzyme","nutrient stoichiometry","biogeochemistry","carbon stock","nitrogen uptake","inorganic nitrogen","peatland","ombrotrophic","bog","cation","stem decay","rice","maize","wheat","crop","cropland","fertiliser","fertilizer","urea","straw","paddy","agroforestry","selenium","cadmium","grain","soybean","manure","tillage","nitrogen fixation","fertilization","fertilisation","phosphorus supply","root exudate","mulching","sugarcane","liana"]},
+ {key:"aquatic",label:"Aquatic, marine & freshwater",emoji:"\ud83d\udc1f",
+  routing:["marine","ocean","oceanic","coral","reef","freshwater","aquatic","stream","river","riverine","lake","pond","wetland","estuary","estuarine","benthic","pelagic","plankton","phytoplankton","fish","deep-sea","hydrothermal vent","gastropod","mollusc","mollusk","fisheries","seagrass","kelp","macroalgae","seabird","intertidal","submerged macrophyte"]},
+ {key:"molecular",label:"Molecular & plant cell biology",emoji:"\ud83e\uddeb",
+  routing:["arabidopsis","chlamydomonas","transcription factor","gene regulation","gene expression","rna interference","cryptochrome","photoreceptor","thylakoid","chloroplast","rubisco","abscisic acid","signalling pathway","signaling pathway","protein kinase","gene family","promoter","transcriptome","proteomic","auxin","cytokinin","phytohormone","cell wall","meristem","knockout mutant","point mutation","stomatal aperture","guard cell","photosystem","aba","stomatal sensitivity","splicing","zinc sensor"]}
 ];
-const JW_DOWNWEIGHT=['marine','ocean','coral','fisheries'];
+const JW_DOWNWEIGHT=["marine","ocean","coral","fisheries","seagrass","reef","deep-sea","hydrothermal","intertidal"];
 const JW_DOWNWEIGHT_PENALTY=3;
-const JW_JOURNAL_HINT={'Methods in Ecology and Evolution':'methods','Molecular Ecology':'evolution','Journal of Biogeography':'biogeography','Global Ecology and Biogeography':'biogeography','Plant and Soil':'soil'};
-const JW_ADMIN_RE=/\b(issue information|editorial board|masthead|cover image|cover picture|correction|corrigendum|erratum|table of contents|front cover|back cover|in this issue|acknowledg|retraction|expression of concern|breast cancer|gastric cancer|carcinoma|aneuploidy|metastasis|metastatic|oncogene|tumour microenvironment|tumor microenvironment)\b/i;
+const JW_SHORT_TITLE_WORDS=5;
+const JW_SHORT_DESC_CHARS=150;
+const JW_JOURNAL_HINT={"Methods in Ecology and Evolution": "methods", "Molecular Ecology": "evolution", "Journal of Biogeography": "biogeography", "Global Ecology and Biogeography": "biogeography", "Plant and Soil": "soil"};
+const JW_ADMIN_RE=/\b(issue information|editorial board|masthead|cover image|cover picture|correction|corrigendum|erratum|table of contents|front cover|back cover|reviewers of manuscripts|editors of manuscripts|ad hoc editors|list of reviewers|thank you to our reviewers|publisher correction|author correction|issue cover|in this issue|acknowledg|retraction|expression of concern|breast cancer|gastric cancer|carcinoma|aneuploidy|metastasis|metastatic|oncogene|tumour microenvironment|tumor microenvironment)\b/i;
 /* Ordered render metadata: active themes (cascade order) -> muted -> unsorted. */
 const JW_ORDER=JW_ACTIVE.map(t=>t.key).concat(JW_MUTED.map(t=>t.key),['unsorted']);
 const JW_MUTED_KEYS=JW_MUTED.map(t=>t.key);
-const JW_META=(()=>{const m={};JW_ACTIVE.concat(JW_MUTED).forEach(t=>m[t.key]={emoji:t.emoji,label:t.label});m['unsorted']={emoji:'❓',label:'Unsorted'};return m;})();
+const JW_META=(()=>{const m={};JW_ACTIVE.concat(JW_MUTED).forEach(t=>m[t.key]={emoji:t.emoji,label:t.label});m['unsorted']={emoji:'\u2753',label:'Unsorted'};return m;})();
 /* -- matching helpers (mirror rss_score.py) -- */
 function jwEscapeRe(s){return s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');}
 function jwTermRe(term){const parts=term.trim().split(/[-\s]+/).map(jwEscapeRe);return new RegExp('(?<![A-Za-z])'+parts.join('[-\\s]+')+'(?:e?s)?(?![A-Za-z])','i');}
 (function jwCompile(){JW_ACTIVE.forEach(t=>{t._core=t.core.map(jwTermRe);t._sec=t.secondary.map(jwTermRe);});JW_MUTED.forEach(t=>{t._route=t.routing.map(jwTermRe);});})();
 const JW_DOWN_RE=JW_DOWNWEIGHT.map(jwTermRe);
-const JW_DASH_RE=/[‐‑‒–—−]/g;
+const JW_DASH_RE=/[\u2010\u2011\u2012\u2013\u2014\u2212]/g;
 function jwNormalize(t){return t.replace(JW_DASH_RE,'-').replace(/\s+/g,' ');}
 function jwCount(res,text){let n=0;for(const rx of res)if(rx.test(text))n++;return n;}
 function jwAny(res,text){for(const rx of res)if(rx.test(text))return true;return false;}
@@ -808,8 +840,9 @@ function classifyArticle(art){
  if(['context','abstract',''].includes(desc.trim().toLowerCase()))desc='';
  if(JW_ADMIN_RE.test(title))return{admin:true,primary_theme:null};
  const text=jwNormalize(title+'. '+desc);
+ const titleOnly=jwNormalize(title);
  const active={};const activeCore={};
- for(const t of JW_ACTIVE){const c=jwCount(t._core,text),s=jwCount(t._sec,text);active[t.key]=c*3+s;activeCore[t.key]=c>0;}
+ for(const t of JW_ACTIVE){const scope=(t.key==='comment')?titleOnly:text;const c=jwCount(t._core,scope),s=jwCount(t._sec,scope);active[t.key]=c*3+s;activeCore[t.key]=c>0;}
  const anyTerr=JW_ACTIVE.some(t=>activeCore[t.key]);
  if(jwAny(JW_DOWN_RE,text)&&!anyTerr){for(const k in active)if(active[k]>0)active[k]=Math.max(0,active[k]-JW_DOWNWEIGHT_PENALTY);}
  const muted={};for(const t of JW_MUTED)muted[t.key]=jwCount(t._route,text);
@@ -821,10 +854,15 @@ function classifyArticle(art){
  if(bestMutedKey&&(bestMutedCount>bestActiveScore||(bestMutedCount>=2&&bestActiveScore<=2)))assigned=bestMutedKey;
  else if(bestActiveScore>0)assigned=bestActiveKey;
  else if(bestMutedCount>0)assigned=bestMutedKey;
- else assigned=JW_JOURNAL_HINT[(art&&art.journal)||'']||'unsorted';
+ else{const hint=JW_JOURNAL_HINT[(art&&art.journal)||''];
+  if(hint)assigned=hint;
+  else if(title.split(/\s+/).filter(Boolean).length<=JW_SHORT_TITLE_WORDS&&desc.trim().length<JW_SHORT_DESC_CHARS)assigned='comment';
+  else assigned='unsorted';}
  return{admin:false,primary_theme:assigned};
 }
 if(typeof module!=='undefined'&&module.exports)module.exports={classifyArticle,JW_ORDER,JW_META,JW_MUTED_KEYS,JW_ACTIVE,JW_MUTED};
+
+/* JW_END */
 function detectTheme(title,abstract){const t=((title||'')+' '+(abstract||'')).toLowerCase();if(/method|statist|bayesian|occupancy|machine.learn|deep.learn|remote.sens|lidar|drone|acoust|dna.metabarc|edna|r.package|mixed.model|model.select|random.forest/i.test(t))return'methods';if(/\bfire\b|wildfire|burn.{0,10}area|post.fire|pyrogenic|charcoal|combustion|permafrost|thaw/i.test(t))return'fire';if(/climate.change|global.warm|temperature.increas|\bdrought\b|precipitation.change|\bco2\b|greenhouse|phenolog|sea.level|heatwave|extreme.event/i.test(t))return'climate';if(/mycorrhiz|rhizosphere|\broot\b.*soil|soil.microb|soil.ecol|decompos|leaf.litter|earthworm|nematode|plant.soil|soil.carbon|soil.organic/i.test(t))return'soil';if(/\bpredator\b|\bprey\b|carnivore|herbivore|\bbird\b|\bmammal\b|\breptile\b|\bfish\b|\binsect\b|arthropod|dispersal|migration|home.range|foraging|trophic|food.web|population.dynamic|dingo|quoll|\bfauna\b/i.test(t))return'animal';if(/\blandscape\b|fragmentation|connectivity|\bpatch\b|\bcorridor\b|edge.effect|\bspatial\b|land.use|\burban\b|\bmatrix\b|habitat.network|\bgis\b|network.analys|ecological.network/i.test(t))return'landscape';if(/biogeograph|species.richness|species.distribut|diversity.gradient|latitudinal|macroecolog|range.shift|tropical|elevational|endemism/i.test(t))return'biogeography';if(/plant.trait|leaf.trait|\bstem\b|wood.density|photosynthes|\bstomata\b|turgor|hydraulic.conduct|transpiration|\bxylem\b|functional.trait|canopy|understory|\bgrass\b|\bherb\b|\bshrub\b/i.test(t))return'plant';if(/ecosystem.function|nutrient.cycl|biogeochem|carbon.stock|primary.product|ecosystem.respir|\bflux\b|\bstream\b|\briver\b|\bwetland\b|hydrology|water.quality|watershed/i.test(t))return'ecosystem';if(/conservation|threatened|endangered|invasive|restoration|management|\bprotected.area\b|\breserve\b|biodiversity.loss|extinction|native.species|recovery.plan/i.test(t))return'conservation';return'climate';}
 function scorePriority(title,abstract){const t=((title||'')+' '+(abstract||'')).toLowerCase();let score=0;if(/\bmammal\b|\bbird\b|\breptile\b|\bamphibian\b|\bfish\b|\binsect\b|arthropod|invertebrate|\bfauna\b|wildlife|\bplant\b|vegetation|\btree\b|\bshrub\b|\bgrass\b|canopy|\bseed\b|\bflora\b/i.test(t))score++;if(/climate.change|global.warm|\bwarming\b|\bdrought\b|temperature.increas|\bco2\b|greenhouse|heatwave|heat.wave|phenolog|extreme.climate/i.test(t))score++;if(/\bfire\b|wildfire|\bflood\b|inundation|extreme.weather|\bstorm\b|\bcyclone\b|\bdisturbance\b|post.fire|pyrogenic/i.test(t))score++;if(/method|statist|bayesian|machine.learn|deep.learn|random.forest|neural.net|occupancy|hierarchical|mixed.model|r.package|remote.sens|lidar|drone|\bedna\b|metabarc|acoustic|camera.trap|data.scien/i.test(t))score++;if(/predator|prey|competition|mutualism|facilitation|parasit|herbivory|pollinat|trophic|food.web|interspecific|intraspecific|symbiosis|interaction.network/i.test(t))score++;if(/\btheor|niche.theor|island.biogeo|neutral.theor|coexistence.theor|evolutionar.theor/i.test(t))score++;if(/population.dynamic|population.viabilit|population.growth|\bdemograph\b|life.histor|age.struct|survival.rate|recruitment.rate|mortality.rate/i.test(t))score++;if(/community.ecol|species.richness|species.divers|species.assembl|\bassemblage\b|beta.divers|alpha.divers|succession|community.assembl|guild.assembl|functional.divers/i.test(t))score++;return score;}
 const JF={q:'',theme:'All',journal:'All',priority:false};
