@@ -194,6 +194,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
     <div class="sb-lbl">Last Refreshed</div>
     <div class="sb-row"><div class="sb-tn">&#128240; Journal Watch</div><div class="sb-t no" id="rt-j">Not loaded</div></div>
     <div class="sb-row"><div class="sb-tn">&#128176; Grants</div><div class="sb-t no" id="rt-g">Not loaded</div></div>
+    <div class="sb-row"><div class="sb-tn">&#127891; Student/ECR</div><div class="sb-t no" id="rt-s">Not loaded</div></div>
   </div>
   <div class="sb-sec" id="sb-sources-j"><div class="sb-lbl">Sources</div><div class="sb-val">RSS &middot; OpenAlex</div></div>
   <div class="sb-sec" id="sb-nav-j">
@@ -700,6 +701,7 @@ function parseDate(s){if(!s)return 0;try{return new Date(s).getTime();}catch{ret
 function setRT(k){const el=document.getElementById('rt-'+k);if(!el)return;el.textContent=new Date().toLocaleTimeString('en-AU',{hour:'2-digit',minute:'2-digit',second:'2-digit'});el.className='sb-t ok'}
 function setJournalFreshness(){const el=document.getElementById('rt-j');if(!el)return;if(!S.cachedAt){el.textContent='Not loaded';el.className='sb-t no';return;}const d=new Date(S.cachedAt);const diffH=(Date.now()-d.getTime())/36e5;const timeStr=d.toLocaleString('en-AU',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'});el.textContent='RSS updated '+timeStr+(diffH>36?' (stale)':'');el.className='sb-t '+(diffH>36?'no':'ok');}
 const AU_MON={Jan:0,Feb:1,Mar:2,Apr:3,May:4,Jun:5,Jul:6,Aug:7,Sep:8,Oct:9,Nov:10,Dec:11};function parseAuDate(s){const m=(s||'').match(/(\d{1,2})\s+(\w{3})\w*\s+(\d{4})/);if(!m)return null;return new Date(+m[3],AU_MON[m[2]]??0,+m[1]);}function setGrantsRT(){const el=document.getElementById('rt-g');if(!el)return;const dates=GRANTS.map(g=>parseAuDate(g.lastChecked)).filter(Boolean);if(!dates.length){el.textContent='Not loaded';el.className='sb-t no';return;}const latest=new Date(Math.max(...dates.map(d=>d.getTime())));el.textContent=latest.toLocaleDateString('en-AU',{day:'numeric',month:'short',year:'numeric'})+' (monthly)';el.className='sb-t static';}
+function setStudentGrantsRT(){const el=document.getElementById('rt-s');const panel=document.getElementById('pan-student-grants');if(!el||!panel){return;}const txt=panel.textContent||'';const re=/Last [Cc]hecked:?\s*(\d{1,2}\s+\w{3,9}\s+\d{4})/g;const dates=[];let m;while((m=re.exec(txt))){const d=parseAuDate(m[1]);if(d)dates.push(d);}if(!dates.length){el.textContent='Not loaded';el.className='sb-t no';return;}const latest=new Date(Math.max(...dates.map(d=>d.getTime())));el.textContent=latest.toLocaleDateString('en-AU',{day:'numeric',month:'short',year:'numeric'})+' (monthly)';el.className='sb-t static';}
 function loading(m,s){return`<div class="lwrap"><div class="spin"></div><div class="lmsg">${esc(m)}</div>${s?`<div class="lstep">${esc(s)}</div>`:''}</div>`}
 function empty(i,t,m){return`<div class="ewrap"><div class="eico">${i}</div><div class="etit">${esc(t)}</div><div class="emsg">${esc(m)}</div></div>`}
 /* == Journal Watch deterministic theme classifier ============================
@@ -878,6 +880,7 @@ document.getElementById('btn-j').addEventListener('click',loadJW);
 document.getElementById('cont').addEventListener('scroll',updateActiveNav,{passive:true});
 document.getElementById('sb-date').textContent=new Date().toLocaleDateString('en-AU',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
 renderGrants();
+setStudentGrantsRT();
 initFilterBar();
 loadSummary();
 loadJW();
